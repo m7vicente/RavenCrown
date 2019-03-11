@@ -15,4 +15,9 @@ public class IndexController {
         return INDEX_URL;
     }
 
+    public String LoginController(Model model){
+        //model
+        return INDEX_URL;
+    }
+
 }

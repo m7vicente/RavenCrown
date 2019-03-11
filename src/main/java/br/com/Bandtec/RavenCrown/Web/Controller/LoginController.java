@@ -15,12 +15,15 @@ public class LoginController {
     public final static String INDEX_URL = "index.html";
 
     @GetMapping("/login")
-    public String LoginController (Model model){
-       return LOGIN_URL;
+    public String LoginController (Model model) {
+       model.addAttribute(new UserModel());
+        return LOGIN_URL;
     }
 
     @PostMapping("/login")
     public String DoLogin (@ModelAttribute UserModel userModel){
+        
+
         return INDEX_URL;
     }
 

@@ -2,7 +2,7 @@ package br.com.Bandtec.RavenCrown.Web.Model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class UserModel {
 
     public String userName;
