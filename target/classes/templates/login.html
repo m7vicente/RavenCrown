@@ -6,15 +6,35 @@
 </head>
 <body>
 
-    <form action="#" th:action="@{/login}" th:object="${userModel}" method="post">
+    <form action="#" th:action="@{/login}" th:object="${userModel}" id="loginForm" method="post">
         <label for="txtEmail">Email</label>
         <input type="email" id="txtEmail" class="txtEmail" th:field="*{userEmail}" required/>
         <br/>
         <label for="txtPass">Senha</label>
         <input type="password" id="txtPass" class="txtPass" th:field="*{userPass}" required/>
         <br/>
-        <input type="submit" value="submit">Enviar</input>
+        <input type="submit" value="submit" onclick="doLogin(loginForm)"></input>
     </form>
+    <script>
+        function doLogin(form){
+            var userEmail = form.txtEmail.value;
+            var userPass =  form.txtPass.value;
 
+                var data = new Date();
+                var hora = data.getDay()+"-"+data.getMonth()+"-"+data.getFullYear()+" "+data.getHours()+":"+data.getMinutes()+":"+data.getMilliseconds();
+                var dados = userEmail + " | " +hora;
+
+                var logHistory = document.cookie["log"];
+
+                if(logHistory == null){
+                    logHistory = [];
+                }
+
+                logHistory.push(dados);
+
+                document.cookie = logHistory;
+                    return true;
+        }
+    </script>
 </body>
 </html>
