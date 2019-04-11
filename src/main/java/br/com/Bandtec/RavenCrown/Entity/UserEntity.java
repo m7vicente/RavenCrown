@@ -10,9 +10,9 @@ import javax.persistence.Table;
 public class UserEntity {
 
     @Id
-    public int Id_Usuario;
+    public Integer Id_Usuario;
 
-    public int Id_Endereco;
+    public Integer Id_Endereco;
 
     public String Nome_Usuario;
 
