@@ -11,6 +11,8 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.junit.Assert.assertTrue;
 
 @Transactional
@@ -26,8 +28,8 @@ public class ComentarioDALTest {
     @Test
     public void ComentarioGetTest(){
 
-        ComentarioEntity comentario = comentarioDAL.getOne(1);
-        assertTrue(comentario != null);
+        List<ComentarioEntity> comentario = comentarioDAL.findAll();
+        assertTrue(comentario.size() > 0);
     }
 
 }

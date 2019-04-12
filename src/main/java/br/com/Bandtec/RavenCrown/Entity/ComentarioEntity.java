@@ -1,21 +1,29 @@
 package br.com.Bandtec.RavenCrown.Entity;
 
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 
 @Entity
-@Table(name="Comentario")
+@Table(name="dbo.TBD_COMENTARIO")
 public class ComentarioEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_COMENTARIO", unique = true, nullable = false)
     private Integer Id_Comentario;
+
+    @Column(name = "DE_COMENTARIO")
     private String De_Comentario ;
+
+    @Column(name = "DATA_COMENTARIO")
     private Date Data_Comentario;
+
+    @Column(name = "ID_SERVICO")
     private Integer Id_Servico;
+
+    @Column(name = "ID_USUARIO")
     private Integer Id_Usuario;
 
 
