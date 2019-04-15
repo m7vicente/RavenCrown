@@ -1,10 +1,7 @@
 package br.com.Bandtec.RavenCrown.Infra.Business;
 
-import br.com.Bandtec.RavenCrown.Entity.UserEntity;
-import br.com.Bandtec.RavenCrown.Infra.DAL.Log;
+import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import org.springframework.stereotype.Component;
-
-import javax.swing.text.html.parser.Entity;
 
 @Component
 public class SecurityApplication {
@@ -15,12 +12,12 @@ public class SecurityApplication {
         setRepository();
     }
 
-    public boolean doLogin(UserEntity userEntity){
+    public boolean doLogin(UsuarioEntity usuarioEntity){
 
         for(int i = 0; i < userCredencial.length; i++){
-            if(userCredencial[i][0].equalsIgnoreCase(userEntity.getEmail_Usuario())
-            && userCredencial[i][1].equalsIgnoreCase(userEntity.getSenha())){
-                new LogBussines().logLoginHistory(userEntity);
+            if(userCredencial[i][0].equalsIgnoreCase(usuarioEntity.getEmail_Usuario())
+            && userCredencial[i][1].equalsIgnoreCase(usuarioEntity.getSenha())){
+                new LogBussines().logLoginHistory(usuarioEntity);
                 return true;
             }
         }

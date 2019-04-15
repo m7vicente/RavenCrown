@@ -6,7 +6,7 @@ import java.sql.Date;
 
 
 @Entity
-@Table(name="dbo.TBD_COMENTARIO")
+@Table(name="TBD_COMENTARIO")
 public class ComentarioEntity {
 
     @Id
@@ -20,11 +20,13 @@ public class ComentarioEntity {
     @Column(name = "DATA_COMENTARIO")
     private Date Data_Comentario;
 
-    @Column(name = "ID_SERVICO")
-    private Integer Id_Servico;
+    @JoinColumn
+    @ManyToOne
+    private ServicoEntity Servico;
 
-    @Column(name = "ID_USUARIO")
-    private Integer Id_Usuario;
+    @JoinColumn
+    @ManyToOne
+    private UsuarioEntity Usuario;
 
 
     public ComentarioEntity(){}
@@ -53,19 +55,4 @@ public class ComentarioEntity {
         Data_Comentario = data_Comentario;
     }
 
-    public Integer getId_Servico() {
-        return Id_Servico;
-    }
-
-    public void setId_Servico(Integer id_Servico) {
-        Id_Servico = id_Servico;
-    }
-
-    public Integer getId_Usuario() {
-        return Id_Usuario;
-    }
-
-    public void setId_Usuario(Integer id_Usuario) {
-        Id_Usuario = id_Usuario;
-    }
 }

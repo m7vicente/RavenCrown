@@ -1,18 +1,19 @@
 package br.com.Bandtec.RavenCrown.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="USUARIO")
-public class UserEntity {
+@Table(name="TBD_USUARIO")
+public class UsuarioEntity {
 
     @Id
-    public Integer Id_Usuario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_USUARIO", unique = true, nullable = false)
+    public int Id_Usuario;
 
-    public Integer Id_Endereco;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
+    public EnderecoEntity Endereco;
 
     public String Nome_Usuario;
 
@@ -40,12 +41,12 @@ public class UserEntity {
         Id_Usuario = id_Usuario;
     }
 
-    public int getId_Endereco() {
-        return Id_Endereco;
+    public EnderecoEntity getId_Endereco() {
+        return Endereco;
     }
 
-    public void setId_Endereco(int id_Endereco) {
-        Id_Endereco = id_Endereco;
+    public void setId_Endereco(EnderecoEntity id_Endereco) {
+        Endereco = id_Endereco;
     }
 
     public String getNome_Usuario() {
