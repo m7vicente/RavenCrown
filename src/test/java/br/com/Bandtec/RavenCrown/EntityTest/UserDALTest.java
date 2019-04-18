@@ -59,8 +59,6 @@ public class UserDALTest {
         UsuarioEntity usuarioFromDB = userDAL.getOne(user.Id_Usuario);
 
         assertEquals(user, usuarioFromDB);
-
-
     }
 
 }
