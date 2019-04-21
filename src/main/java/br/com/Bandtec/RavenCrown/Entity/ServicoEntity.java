@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name="TBD_SERVICO")
@@ -11,43 +12,64 @@ public class ServicoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_SERVICO", unique = true, nullable = false)
-    public int Id_Servico;
+    private int Id_Servico;
 
-    @OneToOne
-    public UsuarioEntity Usuario_Prestador;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    public UsuarioEntity Prestador;
 
-    @OneToOne
-    public EnderecoEntity Endereco;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
+    private EnderecoEntity Endereco;
 
-    public String Nome_Servico;
+    @OneToMany(mappedBy = "Servico")
+    private List<ComentarioEntity> Comentarios;
 
-    public String Desc_Servico;
+    @OneToMany(mappedBy = "Servico")
+    private List<DataServicoEntity> Datas;
 
-    public Boolean Disponibilidade_Fds;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name= "ID_categoria")
+    private CategoriaEntity Categoria;
 
-    public Date Tempo_Execucao;
+    private String Nome_Servico;
 
-    public double Preco_Servico;
+    private String Desc_Servico;
 
-    public boolean Localizacao_Fixa;
+    private Date Tempo_Execucao;
 
+    private Double Preco_Servico;
 
+    private boolean Localizacao_Fixa;
+
+    public ServicoEntity() {
+    }
+
+    public ServicoEntity(int id_Servico, UsuarioEntity prestador, EnderecoEntity endereco, List<ComentarioEntity> comentarios, List<DataServicoEntity> datas, CategoriaEntity categoria, String nome_Servico, String desc_Servico, Date tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
+        Id_Servico = id_Servico;
+        Prestador = prestador;
+        Endereco = endereco;
+        Comentarios = comentarios;
+        Datas = datas;
+        Categoria = categoria;
+        Nome_Servico = nome_Servico;
+        Desc_Servico = desc_Servico;
+        Tempo_Execucao = tempo_Execucao;
+        Preco_Servico = preco_Servico;
+        Localizacao_Fixa = localizacao_Fixa;
+    }
 
     public int getId_Servico() { return Id_Servico;}
 
     public void setId_Servico(int Id_Servico) { this.Id_Servico = Id_Servico;}
 
-    public UsuarioEntity getUsuario_Prestador() {
-        return Usuario_Prestador;
-    }
+    public UsuarioEntity getPrestador() { return Prestador; }
 
-    public void setUsuario_Prestador(UsuarioEntity usuario_Prestador) {
-        Usuario_Prestador = usuario_Prestador;
-    }
+    public void setPrestador(UsuarioEntity Prestador) { this.Prestador = Prestador;}
 
-    public EnderecoEntity getEndereco() { return this.Endereco;}
+    public EnderecoEntity getEndereco() { return Endereco;}
 
-    public void setId_Endereco(EnderecoEntity Id_Endereco) { this.Endereco = Id_Endereco;}
+    public void setEndereco(EnderecoEntity Endereco) { this.Endereco = Endereco;}
 
     public String getNome_Servico() { return Nome_Servico;}
 
@@ -57,17 +79,13 @@ public class ServicoEntity {
 
     public void setDesc_Servico(String Desc_Servico) { this.Desc_Servico = Desc_Servico; }
 
-    public Boolean getDisponibilidade_Fds() { return Disponibilidade_Fds; }
-
-    public void setDisponibilidade_Fds(Boolean Disponibilidade_Fds) { this.Disponibilidade_Fds = Disponibilidade_Fds; }
-
     public Date getTempo_Execucao() { return Tempo_Execucao; }
 
     public void setTempo_Execucao(Date Tempo_Execucao) {this.Tempo_Execucao = Tempo_Execucao; }
 
-    public double getPreco_Servico() { return Preco_Servico; }
+    public Double getPreco_Servico() { return Preco_Servico; }
 
-    public void setPreco_Servico(double Preco_Servico) { this.Preco_Servico = Preco_Servico; }
+    public void setPreco_Servico(Double Preco_Servico) { this.Preco_Servico = Preco_Servico; }
 
     public boolean isLocalizacao_Fixa() { return Localizacao_Fixa; }
 

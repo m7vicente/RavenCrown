@@ -43,20 +43,20 @@ public class UserDALTest {
 
         UsuarioEntity user = new UsuarioEntity();
 
-        user.setSenha("54321");
-        user.setNome_Usuario("Ronaldo da Silva");
-        user.setEmail_Usuario("Ronaldo@silva.com.br");
-        user.setCPF_CNPJ("12345678909");
-        user.setEstado_Civil("Solteiro");
+        user.setSenha("rv2058");
+        user.setNome_Usuario("Vitoria Regina");
+        user.setEmail_Usuario("vitoria@outlook.com");
+        user.setCPF_CNPJ("71294533817");
+        user.setEstado_Civil("Casada");
         user.setPrestador(false);
-        user.setRG("34-333-222-X");
-        user.setSexo('M');
-        user.setTelefone_usuario("(11)92132-4599");
+        user.setRG("34-443-443-X");
+        user.setSexo('F');
+        user.setTelefone_usuario("(11) 4002-8922");
         user.setId_Endereco(endereco);
 
         userDAL.save(user);
 
-        UsuarioEntity usuarioFromDB = userDAL.getOne(user.Id_Usuario);
+        UsuarioEntity usuarioFromDB = userDAL.getOne(user.getId_Usuario());
 
         assertEquals(user, usuarioFromDB);
     }
