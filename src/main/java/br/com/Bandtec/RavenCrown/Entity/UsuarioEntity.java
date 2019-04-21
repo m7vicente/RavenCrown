@@ -1,6 +1,8 @@
 package br.com.Bandtec.RavenCrown.Entity;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name="TBD_USUARIO")
@@ -9,29 +11,97 @@ public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USUARIO", unique = true, nullable = false)
-    public int Id_Usuario;
+    private int Id_Usuario;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
-    public EnderecoEntity Endereco;
+    private EnderecoEntity Endereco;
 
-    public String Nome_Usuario;
+    @OneToOne(mappedBy="Usuario")
+    private ImagemUsuarioEntity Imagem;
 
-    public String Email_Usuario;
+    private String Nome_Usuario;
 
-    public String CPF_CNPJ;
+    private String Email_Usuario;
 
-    public String RG;
+    private String CPF_CNPJ;
 
-    public String Telefone_usuario;
+    private String RG;
 
-    public String Senha;
+    private String Telefone_usuario;
 
-    public boolean Prestador;
+    private String Senha;
 
-    public char Sexo;
+    private boolean Prestador;
 
-    public String Estado_Civil;
+    private char Sexo;
+
+    private String Estado_Civil;
+
+    private Date Data_Nascimento;
+
+    public UsuarioEntity() {
+    }
+
+    public UsuarioEntity(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, Date data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
+        Id_Usuario = id_Usuario;
+        Endereco = endereco;
+        Imagem = imagem;
+        Nome_Usuario = nome_Usuario;
+        Email_Usuario = email_Usuario;
+        this.CPF_CNPJ = CPF_CNPJ;
+        this.RG = RG;
+        Telefone_usuario = telefone_usuario;
+        Senha = senha;
+        Prestador = prestador;
+        Sexo = sexo;
+        Estado_Civil = estado_Civil;
+        Data_Nascimento = data_Nascimento;
+        DatasPrestar = datasPrestar;
+        DatasConsumir = datasConsumir;
+        this.servicosPrestar = servicosPrestar;
+        this.servicosConsumir = servicosConsumir;
+    }
+
+    public Date getData_Nascimento() {
+        return Data_Nascimento;
+    }
+
+    public void setData_Nascimento(Date data_Nascimento) {
+        Data_Nascimento = data_Nascimento;
+    }
+
+    public Collection<DataServicoEntity> getDatasPrestar() {
+        return DatasPrestar;
+    }
+
+    public void setDatasPrestar(Collection<DataServicoEntity> datasPrestar) {
+        DatasPrestar = datasPrestar;
+    }
+
+    public Collection<DataServicoEntity> getDatasConsumir() {
+        return DatasConsumir;
+    }
+
+    public void setDatasConsumir(Collection<DataServicoEntity> datasConsumir) {
+        DatasConsumir = datasConsumir;
+    }
+
+    public Collection<ContratoEntity> getServicosPrestar() {
+        return servicosPrestar;
+    }
+
+    public void setServicosPrestar(Collection<ContratoEntity> servicosPrestar) {
+        this.servicosPrestar = servicosPrestar;
+    }
+
+    public Collection<ContratoEntity> getServicosConsumir() {
+        return servicosConsumir;
+    }
+
+    public void setServicosConsumir(Collection<ContratoEntity> servicosConsumir) {
+        this.servicosConsumir = servicosConsumir;
+    }
 
     public int getId_Usuario() {
         return Id_Usuario;
@@ -120,4 +190,17 @@ public class UsuarioEntity {
     public void setEmail_Usuario(String email_Usuario) {
         Email_Usuario = email_Usuario;
     }
+
+    @OneToMany(mappedBy="Prestador")
+    private Collection<DataServicoEntity> DatasPrestar;
+
+    @OneToMany(mappedBy="Consumidor")
+    private Collection<DataServicoEntity>  DatasConsumir;
+
+    @OneToMany(mappedBy="Prestador")
+    private Collection<ContratoEntity> servicosPrestar ;
+
+    @OneToMany(mappedBy="Consumidor")
+    private Collection<ContratoEntity> servicosConsumir;
+
 }

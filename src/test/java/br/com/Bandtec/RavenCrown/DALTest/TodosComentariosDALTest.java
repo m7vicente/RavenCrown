@@ -1,8 +1,7 @@
-package br.com.Bandtec.RavenCrown.EntityTest;
+package br.com.Bandtec.RavenCrown.DALTest;
 
 import br.com.Bandtec.RavenCrown.Entity.ComentarioEntity;
-import br.com.Bandtec.RavenCrown.Infra.DAL.ComentarioDAL;
-import br.com.Bandtec.RavenCrown.Infra.DAL.UsuarioDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosComentariosDAL;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +18,16 @@ import static org.junit.Assert.assertTrue;
 @Commit
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ComentarioDALTest {
+public class TodosComentariosDALTest {
 
     @Autowired
-    private ComentarioDAL comentarioDAL;
+    private TodosComentariosDAL todosComentariosDAL;
 
 
     @Test
     public void ComentarioGetTest(){
 
-        List<ComentarioEntity> comentario = comentarioDAL.findAll();
+        List<ComentarioEntity> comentario = todosComentariosDAL.findAll();
         assertTrue(comentario.size() > 0);
     }
 

@@ -9,29 +9,37 @@ public class EnderecoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Endereco", unique = true, nullable = false)
-    public int Id_Endereco;
+    private int Id_Endereco;
 
-    public String Rua;
+    private String Rua;
 
-    public String Cep;
+    private String Cep;
 
-    public String Complemento;
+    private String Complemento;
 
-    public String Numero;
+    private String Numero;
 
-    public String Referencia;
+    private String Referencia;
 
-    public String Bairro;
+    private String Bairro;
 
-    public String Cidade;
+    private String Cidade;
 
-    public String Estado;
+    private String Estado;
 
-    public String Pais;
+    private String Pais;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    public UsuarioEntity Usuario;
+    private UsuarioEntity Usuario;
+
+    public UsuarioEntity getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        Usuario = usuario;
+    }
 
     public int getId_Endereco() {return this.Id_Endereco;}
 

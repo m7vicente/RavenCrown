@@ -20,16 +20,24 @@ public class ComentarioEntity {
     @Column(name = "DATA_COMENTARIO")
     private Date Data_Comentario;
 
-    @JoinColumn
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_servico", referencedColumnName = "id_servico")
     private ServicoEntity Servico;
 
-    @JoinColumn
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     private UsuarioEntity Usuario;
 
+    public ComentarioEntity() {
+    }
 
-    public ComentarioEntity(){}
+    public ComentarioEntity(Integer id_Comentario, String de_Comentario, Date data_Comentario, ServicoEntity servico, UsuarioEntity usuario) {
+        Id_Comentario = id_Comentario;
+        De_Comentario = de_Comentario;
+        Data_Comentario = data_Comentario;
+        Servico = servico;
+        Usuario = usuario;
+    }
 
     public int getId_Comentario() {
         return Id_Comentario;
