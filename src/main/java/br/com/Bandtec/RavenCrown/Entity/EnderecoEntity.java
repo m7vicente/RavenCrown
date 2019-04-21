@@ -31,7 +31,15 @@ public class EnderecoEntity {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    public UsuarioEntity Usuario;
+    private UsuarioEntity Usuario;
+
+    public UsuarioEntity getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        Usuario = usuario;
+    }
 
     public int getId_Endereco() {return this.Id_Endereco;}
 

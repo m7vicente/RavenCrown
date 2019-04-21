@@ -1,9 +1,9 @@
-package br.com.Bandtec.RavenCrown.EntityTest;
+package br.com.Bandtec.RavenCrown.DALTest;
 
 import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
-import br.com.Bandtec.RavenCrown.Infra.DAL.EnderecoDAL;
-import br.com.Bandtec.RavenCrown.Infra.DAL.UsuarioDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosEnderecosDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosUsuariosDAL;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,10 @@ import static org.junit.Assert.assertFalse;
 public class UserDALTest {
 
     @Autowired
-    private UsuarioDAL userDAL;
+    private TodosUsuariosDAL userDAL;
 
     @Autowired
-    private EnderecoDAL enderecoDAL;
+    private TodosEnderecosDAL todosEnderecosDAL;
 
     @Test
     public void GetUsersTest(){
@@ -39,7 +39,7 @@ public class UserDALTest {
 
     @Test
     public void InsertUser(){
-        EnderecoEntity endereco = enderecoDAL.getOne(11);
+        EnderecoEntity endereco = todosEnderecosDAL.getOne(11);
 
         UsuarioEntity user = new UsuarioEntity();
 
