@@ -55,6 +55,14 @@ public class ContratoEntity {
         Aprovado_Prestador = aprovado_Prestador;
     }
 
+    public ServicoEntity getServico() {
+        return Servico;
+    }
+
+    public void setServico(ServicoEntity servico) {
+        Servico = servico;
+    }
+
     public int getId_Contrato() { return Id_Contrato; }
 
     public void setId_Contrato(int id_Contrato) { Id_Contrato = id_Contrato; }

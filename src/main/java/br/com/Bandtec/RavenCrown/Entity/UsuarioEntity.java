@@ -203,4 +203,8 @@ public class UsuarioEntity {
     @OneToMany(mappedBy="Consumidor")
     private Collection<ContratoEntity> servicosConsumir;
 
+    @OneToOne(mappedBy = "Usuario")
+    private ImagemUsuarioEntity ImagemPerfil;
+
+
 }

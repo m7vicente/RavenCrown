@@ -12,23 +12,23 @@ public class ImagemServicoEntity {
     private int Id_Imagem_Servico;
 
     @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="id_servico")
+    @JoinColumn(name="Id_servico")
     private ServicoEntity Servico;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Id_usuario", referencedColumnName = "Id_usuario")
     private UsuarioEntity Usuario;
 
-    private String Url_Imagem;
+    private String Imagem_URL;
 
     public ImagemServicoEntity() {
     }
 
-    public ImagemServicoEntity(int id_Imagem_Servico, ServicoEntity servico, UsuarioEntity usuario, String url_Imagem) {
+    public ImagemServicoEntity(int id_Imagem_Servico, ServicoEntity servico, UsuarioEntity usuario, String _ImagemURL) {
         Id_Imagem_Servico = id_Imagem_Servico;
         Servico = servico;
         Usuario = usuario;
-        Url_Imagem = url_Imagem;
+        Imagem_URL = _ImagemURL;
     }
 
     public int getId_Imagem_Servico() { return Id_Imagem_Servico; }
@@ -43,7 +43,7 @@ public class ImagemServicoEntity {
 
     public void setUsuario(UsuarioEntity Usuario) { this.Usuario = Usuario; }
 
-    public String getUrl_Imagem() { return Url_Imagem; }
+    public String getImagem_URL() { return Imagem_URL; }
 
-    public void setUrl_Imagem(String Url_Imagem) { this.Url_Imagem = Url_Imagem; }
+    public void setImagem_URL(String Url_Imagem) { this.Imagem_URL = Url_Imagem; }
 }

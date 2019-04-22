@@ -19,7 +19,6 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 @Transactional
-@Commit
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class UserDALTest {

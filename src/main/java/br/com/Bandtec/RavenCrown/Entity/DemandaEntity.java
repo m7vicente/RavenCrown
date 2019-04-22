@@ -16,7 +16,7 @@ public class DemandaEntity {
     private EnderecoEntity Endereco;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario_consumidor")
     private UsuarioEntity Contratante;
 
     private String Nome_Demanda;
@@ -37,28 +37,28 @@ public class DemandaEntity {
         Valor_Previsto = valor_Previsto;
     }
 
-    private int getId_Demanda() { return Id_Demanda; }
+    public int getId_Demanda() { return Id_Demanda; }
 
-    private void setId_Demanda(int id_Demanda) { Id_Demanda = id_Demanda; }
+    public void setId_Demanda(int id_Demanda) { Id_Demanda = id_Demanda; }
 
-    private EnderecoEntity getEndereco() { return Endereco; }
+    public EnderecoEntity getEndereco() { return Endereco; }
 
-    private void setEndereco(EnderecoEntity Endereco) { Endereco = Endereco; }
+    public void setEndereco(EnderecoEntity Endereco) { Endereco = Endereco; }
 
-    private UsuarioEntity getContratante() { return Contratante; }
+    public UsuarioEntity getContratante() { return Contratante; }
 
-    private void setContratante(UsuarioEntity Contratante) { Contratante = Contratante; }
+    public void setContratante(UsuarioEntity Contratante) { Contratante = Contratante; }
 
-    private String getNome_Demanda() { return Nome_Demanda; }
+    public String getNome_Demanda() { return Nome_Demanda; }
 
-    private void setNome_Demanda(String nome_Demanda) { Nome_Demanda = nome_Demanda; }
+    public void setNome_Demanda(String nome_Demanda) { Nome_Demanda = nome_Demanda; }
 
-    private String getDescricao_Demanda() { return Descricao_Demanda; }
+    public String getDescricao_Demanda() { return Descricao_Demanda; }
 
-    private void setDescricao_Demanda(String descricao_Ddemanda) { Descricao_Demanda = descricao_Ddemanda; }
+    public void setDescricao_Demanda(String descricao_Ddemanda) { Descricao_Demanda = descricao_Ddemanda; }
 
-    private Double getValor_Previsto() { return Valor_Previsto; }
+    public Double getValor_Previsto() { return Valor_Previsto; }
 
-    private void setValor_Previsto(Double valor_Previsto) { Valor_Previsto = valor_Previsto; }
+    public void setValor_Previsto(Double valor_Previsto) { Valor_Previsto = valor_Previsto; }
 }
 

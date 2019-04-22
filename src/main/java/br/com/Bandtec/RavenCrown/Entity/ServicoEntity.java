@@ -2,7 +2,6 @@ package br.com.Bandtec.RavenCrown.Entity;
 
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class ServicoEntity {
     private int Id_Servico;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario_prestador", referencedColumnName = "id_usuario")
     public UsuarioEntity Prestador;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -33,9 +32,13 @@ public class ServicoEntity {
     @JoinColumn(name= "ID_categoria")
     private CategoriaEntity Categoria;
 
+    @OneToMany(mappedBy = "Servico")
+    private List<ImagemServicoEntity> Imagens;
+
+
     private String Nome_Servico;
 
-    private String Desc_Servico;
+    private String Descricao_Servico;
 
     private Time Tempo_Execucao;
 
@@ -46,7 +49,7 @@ public class ServicoEntity {
     public ServicoEntity() {
     }
 
-    public ServicoEntity(int id_Servico, UsuarioEntity prestador, EnderecoEntity endereco, List<ComentarioEntity> comentarios, List<DataServicoEntity> datas, CategoriaEntity categoria, String nome_Servico, String desc_Servico, Time tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
+    public ServicoEntity(int id_Servico, UsuarioEntity prestador, EnderecoEntity endereco, List<ComentarioEntity> comentarios, List<DataServicoEntity> datas, CategoriaEntity categoria, String nome_Servico, String descricao_Servico, Time tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
         Id_Servico = id_Servico;
         Prestador = prestador;
         Endereco = endereco;
@@ -54,7 +57,7 @@ public class ServicoEntity {
         Datas = datas;
         Categoria = categoria;
         Nome_Servico = nome_Servico;
-        Desc_Servico = desc_Servico;
+        Descricao_Servico = descricao_Servico;
         Tempo_Execucao = tempo_Execucao;
         Preco_Servico = preco_Servico;
         Localizacao_Fixa = localizacao_Fixa;
@@ -76,9 +79,9 @@ public class ServicoEntity {
 
     public void setNome_Servico(String Nome_Servico) { this.Nome_Servico = Nome_Servico; }
 
-    public String getDesc_Servico() { return Desc_Servico; }
+    public String getDescricao_Servico() { return Descricao_Servico; }
 
-    public void setDesc_Servico(String Desc_Servico) { this.Desc_Servico = Desc_Servico; }
+    public void setDescricao_Servico(String Desc_Servico) { this.Descricao_Servico = Desc_Servico; }
 
     public Time getTempo_Execucao() { return Tempo_Execucao; }
 
