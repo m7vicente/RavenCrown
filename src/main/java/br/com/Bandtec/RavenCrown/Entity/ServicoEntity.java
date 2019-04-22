@@ -94,5 +94,37 @@ public class ServicoEntity {
     public boolean isLocalizacao_Fixa() { return Localizacao_Fixa; }
 
     public void setLocalizacao_Fixa(boolean Localizacao_Fixa) { this.Localizacao_Fixa = Localizacao_Fixa; }
+
+    public List<ComentarioEntity> getComentarios() {
+        return Comentarios;
+    }
+
+    public void setComentarios(List<ComentarioEntity> comentarios) {
+        Comentarios = comentarios;
+    }
+
+    public List<DataServicoEntity> getDatas() {
+        return Datas;
+    }
+
+    public void setDatas(List<DataServicoEntity> datas) {
+        Datas = datas;
+    }
+
+    public CategoriaEntity getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(CategoriaEntity categoria) {
+        Categoria = categoria;
+    }
+
+    public List<ImagemServicoEntity> getImagens() {
+        return Imagens;
+    }
+
+    public void setImagens(List<ImagemServicoEntity> imagens) {
+        Imagens = imagens;
+    }
 }
 
