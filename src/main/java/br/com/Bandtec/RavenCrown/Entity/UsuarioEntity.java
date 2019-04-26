@@ -22,8 +22,10 @@ public class UsuarioEntity {
 
     private String Nome_Usuario;
 
+    @Column(unique=true)
     private String Email_Usuario;
 
+    @Column(unique=true)
     private String CPF_CNPJ;
 
     private String RG;
