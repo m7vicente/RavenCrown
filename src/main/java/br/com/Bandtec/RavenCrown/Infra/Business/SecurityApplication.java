@@ -8,11 +8,11 @@ import java.util.List;
 @Component
 public class SecurityApplication {
 
+    private final List<UsuarioEntity> userCredencial;
+
     public SecurityApplication(List<UsuarioEntity> users){
         this.userCredencial = users;
     }
-
-    private final List<UsuarioEntity> userCredencial;
 
     public boolean doLogin(UsuarioEntity usuarioEntity){
         boolean retorno = false;

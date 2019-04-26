@@ -4,11 +4,15 @@ import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosUsuariosDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class UsuarioBusiness {
 
     @Autowired
-    TodosUsuariosDAL userdal;
+    private TodosUsuariosDAL userdal;
 
     public UsuarioEntity Login(String email, String senha){
 
@@ -16,7 +20,11 @@ public class UsuarioBusiness {
         entity.setEmail_Usuario(email);
         entity.setSenha(senha);
 
-        if(new SecurityApplication(userdal.findAll()).doLogin(entity)) {
+        List<UsuarioEntity> users = userdal.findAll();
+
+        boolean userExist = new SecurityApplication(users).doLogin(entity);
+
+        if(userExist) {
             entity = userdal.getByUserAndPass(entity.getEmail_Usuario(), entity.getSenha());
             return entity;
         }
