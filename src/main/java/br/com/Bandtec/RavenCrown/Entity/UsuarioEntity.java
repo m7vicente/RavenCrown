@@ -42,6 +42,19 @@ public class UsuarioEntity {
 
     private Date Data_Nascimento;
 
+
+    @OneToMany(mappedBy="Prestador")
+    private Collection<DataServicoEntity> DatasPrestar;
+
+    @OneToMany(mappedBy="Consumidor")
+    private Collection<DataServicoEntity>  DatasConsumir;
+
+    @OneToMany(mappedBy="Prestador")
+    private Collection<ContratoEntity> servicosPrestar ;
+
+    @OneToMany(mappedBy="Consumidor")
+    private Collection<ContratoEntity> servicosConsumir;
+
     public UsuarioEntity() {
     }
 
@@ -111,14 +124,6 @@ public class UsuarioEntity {
 
     public void setId_Usuario(int id_Usuario) {
         Id_Usuario = id_Usuario;
-    }
-
-    public EnderecoEntity getId_Endereco() {
-        return Endereco;
-    }
-
-    public void setId_Endereco(EnderecoEntity id_Endereco) {
-        Endereco = id_Endereco;
     }
 
     public String getNome_Usuario() {
@@ -193,20 +198,20 @@ public class UsuarioEntity {
         Email_Usuario = email_Usuario;
     }
 
-    @OneToMany(mappedBy="Prestador")
-    private Collection<DataServicoEntity> DatasPrestar;
+    public EnderecoEntity getEndereco() {
+        return Endereco;
+    }
 
-    @OneToMany(mappedBy="Consumidor")
-    private Collection<DataServicoEntity>  DatasConsumir;
+    public void setEndereco(EnderecoEntity endereco) {
+        Endereco = endereco;
+    }
 
-    @OneToMany(mappedBy="Prestador")
-    private Collection<ContratoEntity> servicosPrestar ;
+    public ImagemUsuarioEntity getImagem() {
+        return Imagem;
+    }
 
-    @OneToMany(mappedBy="Consumidor")
-    private Collection<ContratoEntity> servicosConsumir;
-
-    @OneToOne(mappedBy = "Usuario")
-    private ImagemUsuarioEntity ImagemPerfil;
-
+    public void setImagem(ImagemUsuarioEntity imagem) {
+        Imagem = imagem;
+    }
 
 }

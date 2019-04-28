@@ -51,7 +51,7 @@ public class TodosUsuariosDALTest {
         user.setRG("34-443-443-X");
         user.setSexo('F');
         user.setTelefone_usuario("(11) 4002-8922");
-        user.setId_Endereco(endereco);
+        user.setEndereco(endereco);
 
         userDAL.save(user);
 
@@ -75,7 +75,7 @@ public class TodosUsuariosDALTest {
         user.setRG("34-443-443-X");
         user.setSexo('F');
         user.setTelefone_usuario("(11) 4002-8922");
-        user.setId_Endereco(endereco);
+        user.setEndereco(endereco);
 
         userDAL.save(user);
 
