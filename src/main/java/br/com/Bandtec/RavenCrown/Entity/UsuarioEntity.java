@@ -63,6 +63,10 @@ public class UsuarioEntity {
         this.setSenha(Senha);
     }
 
+    public UsuarioEntity(int id_Usuario) {
+        this.setId_Usuario(id_Usuario);
+    }
+
     public UsuarioEntity(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, Date data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
         Id_Usuario = id_Usuario;
         Endereco = endereco;

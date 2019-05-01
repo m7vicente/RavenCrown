@@ -21,6 +21,10 @@ public class CategoriaEntity {
     public CategoriaEntity() {
     }
 
+    public CategoriaEntity(int id_Categoria) {
+        this.Id_Categoria = id_Categoria;
+    }
+
     public CategoriaEntity(int id_Categoria, String nome_Categoria, List<ServicoEntity> servicos) {
         Id_Categoria = id_Categoria;
         Nome_Categoria = nome_Categoria;

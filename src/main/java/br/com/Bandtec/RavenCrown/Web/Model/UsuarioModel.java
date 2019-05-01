@@ -1,5 +1,6 @@
 package br.com.Bandtec.RavenCrown.Web.Model;
 
+import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownModel;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
 
     private int IdEndereco;
 
-    private String imagem;
+    private ImagemUsuarioModel imagem;
 
     private String CPF_CNPJ;
 
@@ -39,7 +40,7 @@ public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
         populateModel(usr);
     }
 
-    public UsuarioModel(String nome, String email, String senha, int idUsuairo, int idEndereco, String imagem, String CPF_CNPJ, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
+    public UsuarioModel(String nome, String email, String senha, int idUsuairo, int idEndereco, ImagemUsuarioModel imagem, String CPF_CNPJ, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -98,11 +99,11 @@ public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
         IdEndereco = idEndereco;
     }
 
-    public String getImagem() {
+    public ImagemUsuarioModel getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(ImagemUsuarioModel imagem) {
         this.imagem = imagem;
     }
 
@@ -169,7 +170,7 @@ public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
         this.setSenha(usr.getSenha());
         this.setIdUsuairo(usr.getId_Usuario());
         this.setIdEndereco(usr.getEndereco() == null ? 0 : usr.getEndereco().getId_Endereco());
-        this.setImagem(usr.getImagem() == null ? null : usr.getImagem().getImagem_Url());
+        this.setImagem(new ImagemUsuarioModel(usr.getImagem()));
         this.setCPF_CNPJ(usr.getCPF_CNPJ());
         this.setRG(usr.getRG());
         this.setTelefone(usr.getTelefone_usuario());
@@ -177,5 +178,27 @@ public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
         this.setSexo(usr.getSexo());
         this.setEstadoCivil(usr.getEstado_Civil());
         this.setData_Nascimento(usr.getData_Nascimento());
+    }
+
+    @Override
+    public UsuarioEntity toEntity(){
+        UsuarioEntity usr = new UsuarioEntity();
+
+        usr.setNome_Usuario(this.getNome());
+        usr.setEmail_Usuario(this.getEmail());
+        usr.setSenha(this.getSenha());
+        usr.setId_Usuario(this.getIdUsuairo());
+        usr.setCPF_CNPJ(this.getCPF_CNPJ());
+        usr.setRG(this.getRG());
+        usr.setTelefone_usuario(this.getTelefone());
+        usr.setPrestador(this.isPrestador());
+        usr.setSexo(this.getSexo());
+        usr.setEstado_Civil(this.getEstadoCivil());
+        usr.setData_Nascimento(this.getData_Nascimento());
+
+        usr.setEndereco(new EnderecoEntity(this.getIdEndereco()));
+        usr.setImagem(this.imagem.toEntity());
+
+        return usr;
     }
 }

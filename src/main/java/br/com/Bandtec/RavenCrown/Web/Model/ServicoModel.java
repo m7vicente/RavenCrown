@@ -1,10 +1,11 @@
 package br.com.Bandtec.RavenCrown.Web.Model;
 
-import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
+import br.com.Bandtec.RavenCrown.Entity.*;
 import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownModel;
 import org.springframework.stereotype.Component;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,7 +19,7 @@ public class ServicoModel implements RavenCrownModel<ServicoEntity> {
 
     private int Id_Categoria;
 
-    private List<Object> Imagens;
+    private List<ImagemServicoModel> Imagens;
 
     private String Nome_Servico;
 
@@ -33,7 +34,11 @@ public class ServicoModel implements RavenCrownModel<ServicoEntity> {
     public ServicoModel() {
     }
 
-    public ServicoModel(int id_Servico, int id_Usuario, int id_Endereco, int id_Categoria, List<Object> imagens, String nome_Servico, String descricao_Servico, Time tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
+    public ServicoModel(ServicoEntity entity) {
+        this.populateModel(entity);
+    }
+
+    public ServicoModel(int id_Servico, int id_Usuario, int id_Endereco, int id_Categoria, List<ImagemServicoModel> imagens, String nome_Servico, String descricao_Servico, Time tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
         Id_Servico = id_Servico;
         Id_Usuario = id_Usuario;
         Id_Endereco = id_Endereco;
@@ -78,11 +83,11 @@ public class ServicoModel implements RavenCrownModel<ServicoEntity> {
         Id_Categoria = id_Categoria;
     }
 
-    public List<Object> getImagens() {
+    public List<ImagemServicoModel> getImagens() {
         return Imagens;
     }
 
-    public void setImagens(List<Object> imagens) {
+    public void setImagens(List<ImagemServicoModel> imagens) {
         Imagens = imagens;
     }
 
@@ -132,11 +137,48 @@ public class ServicoModel implements RavenCrownModel<ServicoEntity> {
         this.setId_Usuario(object.getPrestador().getId_Usuario());
         this.setId_Endereco(object.getEndereco().getId_Endereco());
         this.setId_Categoria(object.getCategoria().getId_Categoria());
-        //this.setImagens(object.getImagens());
         this.setNome_Servico(object.getNome_Servico());
         this.setDescricao_Servico(object.getDescricao_Servico());
         this.setTempo_Execucao(object.getTempo_Execucao());
         this.setPreco_Servico(object.getPreco_Servico());
         this.setLocalizacao_Fixa(object.isLocalizacao_Fixa());
+
+        if(object.getImagens() != null) {
+            List<ImagemServicoModel> imagens = new ArrayList<>();
+
+            for(int i =0; i < object.getImagens().size();i++){
+                imagens.add(new ImagemServicoModel(object.getImagens().get(i)));
+            }
+            this.setImagens(imagens);
+        }else{
+            this.setImagens(null);
+        }
+    }
+
+    @Override
+    public ServicoEntity toEntity() {
+        ServicoEntity entity = new ServicoEntity();
+
+        entity.setId_Servico(this.getId_Servico());
+        entity.setNome_Servico(this.getNome_Servico());
+        entity.setDescricao_Servico(this.getDescricao_Servico());
+        entity.setTempo_Execucao(this.getTempo_Execucao());
+        entity.setPreco_Servico(this.getPreco_Servico());
+        entity.setLocalizacao_Fixa(this.isLocalizacao_Fixa());
+
+        entity.setPrestador(new UsuarioEntity(this.getId_Usuario()));
+        entity.setEndereco(new EnderecoEntity(this.getId_Endereco()));
+        entity.setCategoria(new CategoriaEntity(this.getId_Categoria()));
+
+        if(this.getImagens() != null) {
+            List<ImagemServicoEntity> imagens = new ArrayList<>();
+            this.getImagens().forEach(X -> {
+                imagens.add(X.toEntity());
+            });
+            entity.setImagens(imagens);
+        }else{
+            entity.setImagens(null);
+        }
+        return entity;
     }
 }

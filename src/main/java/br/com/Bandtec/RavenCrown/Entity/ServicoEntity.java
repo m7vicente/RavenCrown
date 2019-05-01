@@ -14,11 +14,11 @@ public class ServicoEntity {
     @Column(name = "ID_SERVICO", unique = true, nullable = false)
     private int Id_Servico;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_usuario_prestador", referencedColumnName = "id_usuario")
     public UsuarioEntity Prestador;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
     private EnderecoEntity Endereco;
 
@@ -28,7 +28,7 @@ public class ServicoEntity {
     @OneToMany(mappedBy = "Servico")
     private List<DataServicoEntity> Datas;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name= "ID_categoria")
     private CategoriaEntity Categoria;
 
@@ -61,6 +61,10 @@ public class ServicoEntity {
         Tempo_Execucao = tempo_Execucao;
         Preco_Servico = preco_Servico;
         Localizacao_Fixa = localizacao_Fixa;
+    }
+
+    public ServicoEntity(int id_servico) {
+        this.Id_Servico = id_servico;
     }
 
     public int getId_Servico() { return Id_Servico;}
