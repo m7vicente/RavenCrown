@@ -22,13 +22,16 @@ public class UsuarioBusiness {
 
         List<UsuarioEntity> users = userdal.findAll();
 
-        boolean userExist = new SecurityApplication(users).doLogin(entity);
+        int userExist = new SecurityApplication(users).doLogin(entity);
 
-        if(userExist) {
-            entity = userdal.getByUserAndPass(entity.getEmail_Usuario(), entity.getSenha());
+        if(userExist > -1) {
+            entity = users.get(userExist);
             return entity;
         }
         return null;
+    }
+    public UsuarioEntity getUser(int Id){
+        return userdal.getOne(Id);
     }
 
 }

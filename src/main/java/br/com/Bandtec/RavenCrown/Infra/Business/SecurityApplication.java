@@ -14,14 +14,15 @@ public class SecurityApplication {
         this.userCredencial = users;
     }
 
-    public boolean doLogin(UsuarioEntity usuarioEntity){
-        boolean retorno = false;
+    public int doLogin(UsuarioEntity usuarioEntity){
+        int retorno = -1;
 
-        for(UsuarioEntity x : this.userCredencial){
-            if(x.getEmail_Usuario().equalsIgnoreCase(usuarioEntity.getEmail_Usuario())
-            && x.getSenha().equalsIgnoreCase(usuarioEntity.getSenha())){
+        for (int i = 0; i < this.userCredencial.size(); i++ ){
+            if(this.userCredencial.get(i).getEmail_Usuario().equalsIgnoreCase(usuarioEntity.getEmail_Usuario())
+            && this.userCredencial.get(i).getSenha().equalsIgnoreCase(usuarioEntity.getSenha())){
                 new LogBussines().logLoginHistory(usuarioEntity);
-                retorno = true;
+                retorno = i;
+                break;
             }
         };
         return retorno;

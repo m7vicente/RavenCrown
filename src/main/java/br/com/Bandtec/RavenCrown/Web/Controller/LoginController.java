@@ -15,9 +15,8 @@ public class LoginController {
     private UsuarioBusiness userBusiness;
 
     @GetMapping("/login")
-    public String LoginController (Model model) {
-       model.addAttribute(new UsuarioModel());
-        return "";
+    public UsuarioModel LoginController (@RequestParam("Id") int id) {
+        return new UsuarioModel(userBusiness.getUser(id));
     }
 
     @CrossOrigin
@@ -31,5 +30,7 @@ public class LoginController {
             return new UsuarioModel(usr);
         }
     }
+//    http://localhost:8080/login
+//    {"email" : "email@email.com","senha" : "))@@@@$$$"}
 
 }

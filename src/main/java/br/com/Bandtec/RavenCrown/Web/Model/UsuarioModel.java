@@ -1,12 +1,13 @@
 package br.com.Bandtec.RavenCrown.Web.Model;
 
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
+import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownModel;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
 @Component
-public class UsuarioModel {
+public class UsuarioModel implements RavenCrownModel<UsuarioEntity> {
 
     private String nome;
 
@@ -161,19 +162,20 @@ public class UsuarioModel {
         this.data_Nascimento = data_Nascimento;
     }
 
-    private void populateModel(UsuarioEntity usr){
-        this.nome = nome = usr.getNome_Usuario();
-        this.email = email = usr.getEmail_Usuario();
-        this.senha = senha = usr.getSenha();
-        this.IdUsuairo = usr.getId_Usuario();
-        this.IdEndereco =  (usr.getEndereco() == null ? 0 : usr.getEndereco().getId_Endereco());
-        this.imagem = imagem = (usr.getImagem() == null ? null : usr.getImagem().getImagem_Url());
-        this.CPF_CNPJ = CPF_CNPJ = usr.getCPF_CNPJ();
-        this.RG = RG = usr.getRG();
-        this.telefone = telefone = usr.getTelefone_usuario();
-        Prestador = usr.isPrestador();
-        this.sexo = sexo = usr.getSexo();
-        this.estadoCivil = estadoCivil = usr.getEstado_Civil();
-        this.data_Nascimento = data_Nascimento = usr.getData_Nascimento();
+    @Override
+    public void populateModel(UsuarioEntity usr){
+        this.setNome(usr.getNome_Usuario());
+        this.setEmail(email = usr.getEmail_Usuario());
+        this.setSenha(usr.getSenha());
+        this.setIdUsuairo(usr.getId_Usuario());
+        this.setIdEndereco(usr.getEndereco() == null ? 0 : usr.getEndereco().getId_Endereco());
+        this.setImagem(usr.getImagem() == null ? null : usr.getImagem().getImagem_Url());
+        this.setCPF_CNPJ(usr.getCPF_CNPJ());
+        this.setRG(usr.getRG());
+        this.setTelefone(usr.getTelefone_usuario());
+        this.setPrestador(usr.isPrestador());
+        this.setSexo(usr.getSexo());
+        this.setEstadoCivil(usr.getEstado_Civil());
+        this.setData_Nascimento(usr.getData_Nascimento());
     }
 }
