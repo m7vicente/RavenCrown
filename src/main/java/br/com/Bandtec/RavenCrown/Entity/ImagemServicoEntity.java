@@ -15,7 +15,7 @@ public class ImagemServicoEntity {
     @JoinColumn(name="Id_servico")
     private ServicoEntity Servico;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "Id_usuario", referencedColumnName = "Id_usuario")
     private UsuarioEntity Usuario;
 

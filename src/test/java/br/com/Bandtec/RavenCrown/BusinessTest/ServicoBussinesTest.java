@@ -22,8 +22,8 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-@Transactional
 @Commit
+@Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ServicoBussinesTest {

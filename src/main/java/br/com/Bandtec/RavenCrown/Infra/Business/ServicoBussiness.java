@@ -51,4 +51,12 @@ public class ServicoBussiness {
 
         return new ServicoModel(servicoEntity);
     }
+
+    public void UpdateService(ServicoModel model) {
+        servicosDAL.save(model.toEntity());
+    }
+
+    public void DeleteService(ServicoModel model) {
+        servicosDAL.delete(model.toEntity());
+    }
 }

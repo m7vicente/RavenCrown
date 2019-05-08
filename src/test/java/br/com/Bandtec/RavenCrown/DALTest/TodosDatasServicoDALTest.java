@@ -22,7 +22,6 @@ import static org.junit.Assert.assertFalse;
 
 @Transactional
 @SpringBootTest
-@Commit
 @RunWith(SpringRunner.class)
 public class TodosDatasServicoDALTest {
 

@@ -147,7 +147,11 @@ public class ServicoModel implements RavenCrownModel<ServicoEntity> {
             List<ImagemServicoModel> imagens = new ArrayList<>();
 
             for(int i =0; i < object.getImagens().size();i++){
-                imagens.add(new ImagemServicoModel(object.getImagens().get(i)));
+                ImagemServicoModel imagem = new ImagemServicoModel();
+                imagem.setImagem_URL(object.getImagens().get(i).getImagem_URL());
+                imagem.setId_Servico(object.getId_Servico());
+                imagem.setId_Usuario(object.getPrestador().getId_Usuario());
+                imagens.add(imagem);
             }
             this.setImagens(imagens);
         }else{

@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Web.Controller;
 import br.com.Bandtec.RavenCrown.Infra.Business.ServicoBussiness;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,4 +22,15 @@ public class ServicoController {
         return servicoBussines.insertService(model);
     }
 
+    @PutMapping("/Servico")
+    public ServicoModel updateServico(@RequestBody ServicoModel model){
+        servicoBussines.UpdateService(model);
+        return model;
+    }
+
+    @DeleteMapping("/Servico")
+    public ResponseEntity<String> deleteServico(@RequestBody ServicoModel model){
+        servicoBussines.DeleteService(model);
+        return ResponseEntity.ok("Apagado com sucesso");
+    }
 }
