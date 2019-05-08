@@ -13,4 +13,7 @@ public interface TodosUsuariosDAL extends JpaRepository<UsuarioEntity, Integer> 
     @Query("from UsuarioEntity where Email_Usuario = ?1 and Senha = ?2")
     public UsuarioEntity getByUserAndPass(String email, String senha);
 
+    @Query("from UsuarioEntity where Email_Usuario = ?1")
+    public UsuarioEntity getByEmail(String email);
+
 }
