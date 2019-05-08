@@ -1,31 +1,29 @@
-package br.com.Bandtec.RavenCrown.Entity;
+package br.com.Bandtec.RavenCrown.Web.Model;
+
+import br.com.Bandtec.RavenCrown.Entity.ContratoEntity;
+import br.com.Bandtec.RavenCrown.Entity.DataServicoEntity;
+import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
+import br.com.Bandtec.RavenCrown.Entity.ImagemUsuarioEntity;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 
-@Entity
-@Table(name="TBD_USUARIO")
-public class UsuarioEntity {
+@Component
+public class CadastroModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_USUARIO", unique = true, nullable = false)
+
     private int Id_Usuario;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
     private EnderecoEntity Endereco;
 
-    @OneToOne(mappedBy="Usuario")
     private ImagemUsuarioEntity Imagem;
 
     private String Nome_Usuario;
 
-    @Column(unique=true)
     private String Email_Usuario;
 
-    @Column(unique=true)
     private String CPF_CNPJ;
 
     private String RG;
@@ -42,32 +40,18 @@ public class UsuarioEntity {
 
     private Date Data_Nascimento;
 
-
-    @OneToMany(mappedBy="Prestador")
     private Collection<DataServicoEntity> DatasPrestar;
 
-    @OneToMany(mappedBy="Consumidor")
     private Collection<DataServicoEntity>  DatasConsumir;
 
-    @OneToMany(mappedBy="Prestador")
     private Collection<ContratoEntity> servicosPrestar ;
 
-    @OneToMany(mappedBy="Consumidor")
     private Collection<ContratoEntity> servicosConsumir;
 
-    public UsuarioEntity() {
+    public CadastroModel() {
     }
 
-    public UsuarioEntity(String email_Usuario, String Senha) {
-        this.setEmail_Usuario(email_Usuario);
-        this.setSenha(Senha);
-    }
-
-    public UsuarioEntity(int id_Usuario) {
-        this.setId_Usuario(id_Usuario);
-    }
-
-    public UsuarioEntity(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, Date data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
+    public CadastroModel(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, Date data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
         Id_Usuario = id_Usuario;
         Endereco = endereco;
         Imagem = imagem;
@@ -222,5 +206,4 @@ public class UsuarioEntity {
     public void setImagem(ImagemUsuarioEntity imagem) {
         Imagem = imagem;
     }
-
 }

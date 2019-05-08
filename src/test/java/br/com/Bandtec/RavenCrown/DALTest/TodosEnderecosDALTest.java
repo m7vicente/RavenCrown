@@ -16,7 +16,6 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 @Transactional
-@Commit
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class TodosEnderecosDALTest {

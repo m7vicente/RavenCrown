@@ -12,7 +12,7 @@ public class ComentarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_COMENTARIO", unique = true, nullable = false)
-    private Integer Id_Comentario;
+    private int Id_Comentario;
 
     @Column(name = "DE_COMENTARIO")
     private String De_Comentario ;
@@ -31,11 +31,27 @@ public class ComentarioEntity {
     public ComentarioEntity() {
     }
 
-    public ComentarioEntity(Integer id_Comentario, String de_Comentario, Date data_Comentario, ServicoEntity servico, UsuarioEntity usuario) {
+    public ComentarioEntity(int id_Comentario, String de_Comentario, Date data_Comentario, ServicoEntity servico, UsuarioEntity usuario) {
         Id_Comentario = id_Comentario;
         De_Comentario = de_Comentario;
         Data_Comentario = data_Comentario;
         Servico = servico;
+        Usuario = usuario;
+    }
+
+    public ServicoEntity getServico() {
+        return Servico;
+    }
+
+    public void setServico(ServicoEntity servico) {
+        Servico = servico;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
         Usuario = usuario;
     }
 

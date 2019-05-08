@@ -10,7 +10,7 @@ public class CategoriaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_COMENTARIO", unique = true, nullable = false)
+    @Column(name = "ID_Categoria", unique = true, nullable = false)
     private int Id_Categoria;
 
     private String Nome_Categoria;
@@ -19,6 +19,10 @@ public class CategoriaEntity {
     private List<ServicoEntity> Servicos;
 
     public CategoriaEntity() {
+    }
+
+    public CategoriaEntity(int id_Categoria) {
+        this.Id_Categoria = id_Categoria;
     }
 
     public CategoriaEntity(int id_Categoria, String nome_Categoria, List<ServicoEntity> servicos) {

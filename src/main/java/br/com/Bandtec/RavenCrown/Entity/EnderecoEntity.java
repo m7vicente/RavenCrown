@@ -33,6 +33,27 @@ public class EnderecoEntity {
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     private UsuarioEntity Usuario;
 
+    public EnderecoEntity(int id_Endereco) {
+        this.Id_Endereco = id_Endereco;
+    }
+
+    public EnderecoEntity() {
+    }
+
+    public EnderecoEntity(int id_Endereco, String rua, String cep, String complemento, String numero, String referencia, String bairro, String cidade, String estado, String pais, UsuarioEntity usuario) {
+        Id_Endereco = id_Endereco;
+        Rua = rua;
+        Cep = cep;
+        Complemento = complemento;
+        Numero = numero;
+        Referencia = referencia;
+        Bairro = bairro;
+        Cidade = cidade;
+        Estado = estado;
+        Pais = pais;
+        Usuario = usuario;
+    }
+
     public UsuarioEntity getUsuario() {
         return Usuario;
     }
