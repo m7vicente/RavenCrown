@@ -568,11 +568,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ServicoBussinesTest" />
-        <item itemvalue="JUnit.ServicoBussinesTest.persistirServicoSEMImagem" />
         <item itemvalue="JUnit.TodosUsuariosDALTest" />
-        <item itemvalue="Application.RavenCrownApplication" />
+        <item itemvalue="JUnit.ServicoBussinesTest.persistirServicoSEMImagem" />
         <item itemvalue="JUnit.ServicoBussinesTest.persistirServicoCOMImagem" />
+        <item itemvalue="JUnit.ServicoBussinesTest" />
+        <item itemvalue="Application.RavenCrownApplication" />
       </list>
     </recent_temporary>
   </component>
