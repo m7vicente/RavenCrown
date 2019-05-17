@@ -4,6 +4,7 @@ import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +17,19 @@ public class LoginController {
 
     @GetMapping("/login")
     public UsuarioModel LoginController (@RequestParam("Id") int id) {
-        return new UsuarioModel(userBusiness.getUser(id));
+        ModelMapper mapper = new ModelMapper();
+        return mapper.map(userBusiness.getUser(id),UsuarioModel.class);
     }
 
     @CrossOrigin
     @PostMapping("/login")
     public UsuarioModel Login (@RequestBody LoginModel user){
-        UsuarioEntity usr = userBusiness.Login(user.getEmail(),user.getSenha());
-
+        ModelMapper mapper = new ModelMapper();
+        UsuarioModel usr = mapper.map(userBusiness.Login(user.getEmail(),user.getSenha()),UsuarioModel.class);
         if(usr == null){
             return null;
         }else{
-            return new UsuarioModel(usr);
+            return usr;
         }
     }
 //    http://localhost:8080/login

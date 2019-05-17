@@ -14,15 +14,15 @@ public class CadastroController {
     @Autowired
     private UsuarioBusiness userBusiness;
 
-    @CrossOrigin
-    @PostMapping("/cadastro")
-    public UsuarioModel Cadastro (@RequestBody CadastroModel user){
-        UsuarioEntity usr = userBusiness.Cadastro(user);
-
-        if(usr == null){
-            return null;
-        }else{
-            return new UsuarioModel(usr);
-        }
-    }
+//    @CrossOrigin
+//    @PostMapping("/cadastro")
+//    public UsuarioModel Cadastro (@RequestBody CadastroModel user){
+//        UsuarioEntity usr = userBusiness.Cadastro(user);
+//
+//        if(usr == null){
+//            return null;
+//        }else{
+//            return new UsuarioModel(usr);
+//        }
+//    }
 }

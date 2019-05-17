@@ -59,4 +59,9 @@ public class ServicoBussiness {
     public void DeleteService(ServicoModel model) {
         servicosDAL.delete(model.toEntity());
     }
+
+    public List<ServicoEntity>ObterTodosServicosPorPrestadorId(int id){
+        return servicosDAL.GetAllServicesByUserId(id);
+    }
+
 }
