@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e93d1d3-87e9-47b0-b30d-e77e41c5ce0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_vintage_junit_vintage_engine_5_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_2_27_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_25_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_2_27_0.xml" afterDir="false" />
+    <list default="true" id="2e93d1d3-87e9-47b0-b30d-e77e41c5ce0c" name="Default Changelist" comment="Mapeador de objetos a alguns metodos da clesse bussines adicionado.">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
@@ -29,30 +18,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_0_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_0_M3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_0_M4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_0_M3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_0_M4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_2_0_M2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_0_M1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_0_M2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RavenCrown.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RavenCrown.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/Business/ServicoBussiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/Business/ServicoBussiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/CadastroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/CadastroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Model/UsuarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Model/UsuarioModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,19 +36,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/Business/UsuarioBusiness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-              <folding>
-                <element signature="e#1065#1066#0" expanded="true" />
-                <element signature="e#1106#1107#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/Business/ServicoBussiness.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
@@ -97,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+            <state relative-caret-position="119">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -142,14 +96,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="275">
               <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Entity/ServicoEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -181,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="214">
+              <caret line="49" selection-start-line="49" selection-end-line="53" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -288,9 +251,9 @@
         <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/CadastroController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Model/UsuarioModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/UsuarioController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/Business/ServicoBussiness.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java" />
       </list>
     </option>
   </component>
@@ -377,7 +340,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="RavenCrown" type="462c0819:PsiDirectoryNode" />
-              <item name="Web" type="462c0819:PsiDirectoryNode" />
+              <item name="Infra" type="462c0819:PsiDirectoryNode" />
+              <item name="Business" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RavenCrown" type="b2602c69:ProjectViewProjectNode" />
@@ -386,8 +350,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="RavenCrown" type="462c0819:PsiDirectoryNode" />
-              <item name="Web" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Infra" type="462c0819:PsiDirectoryNode" />
+              <item name="DAL" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RavenCrown" type="b2602c69:ProjectViewProjectNode" />
@@ -395,6 +359,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RavenCrown" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RavenCrown" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -432,7 +402,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RavenCrownApplication">
+  <component name="RunManager" selected="JUnit.All in RavenCrown">
     <configuration name="RavenCrownApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.Bandtec.RavenCrown.RavenCrownApplication" />
       <module name="RavenCrown" />
@@ -442,6 +412,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in RavenCrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RavenCrown" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -462,38 +440,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServicoBussinesTest.persistirServicoCOMImagem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RavenCrown" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.Bandtec.RavenCrown.BusinessTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.Bandtec.RavenCrown.BusinessTest" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Bandtec.RavenCrown.BusinessTest.ServicoBussinesTest" />
-      <option name="METHOD_NAME" value="persistirServicoCOMImagem" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServicoBussinesTest.persistirServicoSEMImagem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RavenCrown" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.Bandtec.RavenCrown.BusinessTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.Bandtec.RavenCrown.BusinessTest" />
-      <option name="MAIN_CLASS_NAME" value="br.com.Bandtec.RavenCrown.BusinessTest.ServicoBussinesTest" />
-      <option name="METHOD_NAME" value="persistirServicoSEMImagem" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TodosUsuariosDALTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RavenCrown" />
       <extension name="coverage">
@@ -509,13 +455,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="br.com.Bandtec.RavenCrown.DALTest in RavenCrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RavenCrown" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.Bandtec.RavenCrown.DALTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.Bandtec.RavenCrown.DALTest" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in RavenCrown" />
+        <item itemvalue="JUnit.br.com.Bandtec.RavenCrown.DALTest in RavenCrown" />
         <item itemvalue="Application.RavenCrownApplication" />
         <item itemvalue="JUnit.ServicoBussinesTest" />
         <item itemvalue="JUnit.TodosUsuariosDALTest" />
-        <item itemvalue="JUnit.ServicoBussinesTest.persistirServicoSEMImagem" />
-        <item itemvalue="JUnit.ServicoBussinesTest.persistirServicoCOMImagem" />
       </list>
     </recent_temporary>
   </component>
@@ -586,16 +546,17 @@
       <option name="project" value="LOCAL" />
       <updated>1557284265696</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mapeador de objetos a alguns metodos da clesse bussines adicionado.">
+      <created>1558126939716</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558126939716</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ServicoBussinesTest - 2019.05.07 at 20h 17m 16s.xml">
-      <configuration name="ServicoBussinesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ServicoBussinesTest - 2019.05.07 at 20h 32m 57s.xml">
-      <configuration name="ServicoBussinesTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ServicoBussinesTest_persistirServicoSEMImagem - 2019.05.07 at 20h 35m 43s.xml">
       <configuration name="ServicoBussinesTest.persistirServicoSEMImagem" configurationId="JUnit" />
     </history-entry>
@@ -620,6 +581,12 @@
     <history-entry file="ServicoBussinesTest - 2019.05.13 at 19h 02m 26s.xml">
       <configuration name="ServicoBussinesTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_RavenCrown - 2019.05.17 at 18h 18m 35s.xml">
+      <configuration name="All in RavenCrown" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_RavenCrown - 2019.05.17 at 18h 30m 06s.xml">
+      <configuration name="All in RavenCrown" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -628,10 +595,10 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" x="31" y="107" width="442" height="611" id="Project" order="3" visible="true" weight="0.3797277" />
+      <window_info active="true" content_ui="combo" x="31" y="107" width="442" height="611" id="Project" order="3" visible="true" weight="0.3797277" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.39934534" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3207856" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -655,7 +622,8 @@
     <MESSAGE value="Para melhor padronização das models foi criada uma interface padrão para todas, alterações no usuarioBussines para não acessar o banco mais de uma vez, inclusão do controller servico" />
     <MESSAGE value="Teste para incluir servico com esem imagem adicionado, porém ambos estão falhando na hora de retornar para model, adicionado consutrutor por id em algumas entidades." />
     <MESSAGE value="Junção feita a mão das implementações da branch henrique-fmr com matheus," />
-    <option name="LAST_COMMIT_MESSAGE" value="Junção feita a mão das implementações da branch henrique-fmr com matheus," />
+    <MESSAGE value="Mapeador de objetos a alguns metodos da clesse bussines adicionado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mapeador de objetos a alguns metodos da clesse bussines adicionado." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1009,13 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Entity/ServicoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Entity/ImagemServicoEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1126,13 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosUsuariosDAL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1156,13 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/ServicoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1173,10 +1120,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/UsuarioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Entity/ServicoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state relative-caret-position="214">
+          <caret line="49" selection-start-line="49" selection-end-line="53" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1194,23 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/UsuarioController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Infra/DAL/TodosServicosDAL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/Bandtec/RavenCrown/Web/Controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
         </state>
       </provider>
     </entry>
