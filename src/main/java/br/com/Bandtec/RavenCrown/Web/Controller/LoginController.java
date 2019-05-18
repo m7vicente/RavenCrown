@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class LoginController {
 
@@ -33,6 +34,6 @@ public class LoginController {
         }
     }
 //    http://localhost:8080/login
-//    {"email" : "email@email.com","senha" : "))@@@@$$$"}
+    //    {"email" : "email@email.com","senha" : "))@@@@$$$"}
 
 }

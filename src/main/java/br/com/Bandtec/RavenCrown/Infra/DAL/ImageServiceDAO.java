@@ -36,7 +36,7 @@ public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> 
     }
 
     @Override
-    public String getImage(String ImageURL) {
+    public byte[] getImage(String ImageURL) {
         return null;
     }
 }

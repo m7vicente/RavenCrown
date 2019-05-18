@@ -2,11 +2,10 @@ package br.com.Bandtec.RavenCrown.Web.Model;
 
 import br.com.Bandtec.RavenCrown.Entity.ImagemUsuarioEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
-import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ImagemUsuarioModel implements RavenCrownModel<ImagemUsuarioEntity> {
+public class ImagemUsuarioModel{
 
     private int Imagem_Id;
 
@@ -15,10 +14,6 @@ public class ImagemUsuarioModel implements RavenCrownModel<ImagemUsuarioEntity> 
     private String Imagem_Url;
 
     private byte[] image;
-
-    public ImagemUsuarioModel(ImagemUsuarioEntity imagem){
-        populateModel(imagem);
-    }
 
     public ImagemUsuarioModel(){
     }
@@ -61,21 +56,4 @@ public class ImagemUsuarioModel implements RavenCrownModel<ImagemUsuarioEntity> 
         this.image = image;
     }
 
-    @Override
-    public void populateModel(ImagemUsuarioEntity object) {
-        this.setId_Usuario(object.getUsuario().getId_Usuario());
-        this.setImagem_Id(object.getImagem_Id());
-        this.setImagem_Url(object.getImagem_Url());
-    }
-
-    @Override
-    public ImagemUsuarioEntity toEntity() {
-        ImagemUsuarioEntity entity = new ImagemUsuarioEntity();
-
-        entity.setImagem_Id(this.getImagem_Id());
-        entity.setImagem_Url(this.getImagem_Url());
-        entity.setUsuario(new UsuarioEntity(this.getId_Usuario()));
-
-        return entity;
-    }
 }

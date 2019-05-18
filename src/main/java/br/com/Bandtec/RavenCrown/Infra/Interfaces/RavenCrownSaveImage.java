@@ -4,5 +4,5 @@ public interface RavenCrownSaveImage<U> {
 
     String saveImage(U imageBLOB);
 
-    String getImage(String idImage);
+    byte[] getImage(String idImage);
 }

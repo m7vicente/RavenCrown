@@ -5,13 +5,13 @@ import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosEnderecosDAL;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosUsuariosDAL;
-import br.com.Bandtec.RavenCrown.Web.Model.CadastroModel;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
+import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -37,7 +37,8 @@ public class TodosUsuariosDALTest {
     private UsuarioBusiness business;
 
     LoginModel userEntity;
-    CadastroModel userEntity_2;
+
+    UsuarioModel UserModel;
 
     @Test
     public void GetUsersTest(){
@@ -96,42 +97,25 @@ public class TodosUsuariosDALTest {
 
     @Test
     public void cadastrTest(){
-        userEntity_2 = new CadastroModel();
 
-        userEntity_2.setNome_Usuario("João");
-        userEntity_2.setEmail_Usuario("joaozinho@gmail.com");
-        userEntity_2.setSenha("12345");
+        UserModel.setNome("João");
+        UserModel.setEmail("joaozinho@gmail.com");
+        UserModel.setSenha("12345");
 
-        EnderecoEntity endereco = new EnderecoEntity();
-        endereco.setRua("aaaaaaaaa");
-        endereco.setReferencia("aaaaaaaaaa");
-        endereco.setPais("aaaaaaaa");
-        endereco.setNumero("aaaaaaaaa");
-        endereco.setEstado("aaaaaaaaa");
-        endereco.setComplemento("aaaaaaaaa");
-        endereco.setCidade("aaaaaaaa");
-        endereco.setCep("aaaaaaaaaa");
-        endereco.setBairro("aaaaaaaaaa");
-        userEntity_2.setEndereco(endereco);
-        userEntity_2.setCPF_CNPJ("111111111");
-        userEntity_2.setRG("aaaaaaaaaa");
-        userEntity_2.setTelefone_usuario("aaaaaaaaa");
-        userEntity_2.setPrestador(true);
-        userEntity_2.setSexo('M');
-        userEntity_2.setEstado_Civil("Solteiro");
+        UserModel.setCPF_CNPJ("111111111");
+        UserModel.setRG("aaaaaaaaaa");
+        UserModel.setTelefone("aaaaaaaaa");
+        UserModel.setPrestador(true);
+        UserModel.setSexo('M');
+        UserModel.setEstadoCivil("F");
         Date data = new Date(1111111);
-        userEntity_2.setData_Nascimento(data);
-        userEntity_2.setDatasPrestar(null);
-        userEntity_2.setDatasConsumir(null);
-        userEntity_2.setServicosPrestar(null);
-        userEntity_2.setServicosConsumir(null);
-        userEntity_2.setImagem(null);
+        UserModel.setData_Nascimento(data);
 
-        UsuarioEntity user = business.Cadastro(userEntity_2);
+        UsuarioModel user = new ModelMapper().map(business.Cadastro(new ModelMapper().map(UserModel,UsuarioEntity.class)),UsuarioModel.class);
 
 
 
-        assertEquals(user, userEntity_2);
+        assertEquals(user, UserModel);
     }
 
 }

@@ -6,6 +6,7 @@ import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
@@ -17,7 +18,6 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
@@ -33,6 +33,8 @@ public class ServicoBussinesTest {
 
     ServicoModel model;
 
+    ModelMapper mapper = new ModelMapper();
+
     @Test
     public void persistirServicoSEMImagem(){
         model = new ServicoModel();
@@ -42,11 +44,11 @@ public class ServicoBussinesTest {
         model.setNome_Servico("O Famoso Pedreiro");
         model.setLocalizacao_Fixa(false);
         model.setPreco_Servico(33.33);
-        model.setImagens(null);
+        model.setImagem(null);
         model.setId_Categoria(1);
         model.setTempo_Execucao(Time.valueOf("00:10:00"));
 
-        ServicoEntity servicoSalvo = serviceBusiness.insertService(model).toEntity();
+        ServicoEntity servicoSalvo = serviceBusiness.insertService(mapper.map(model,ServicoEntity.class));
 
         assertTrue(servicoSalvo != null);
     }
@@ -83,9 +85,9 @@ public class ServicoBussinesTest {
         imagem.setId_Usuario(11);
         imagens.add(imagem);
 
-        model.setImagens(imagens);
+        model.setImagem(imagens);
 
-        ServicoEntity servicoSalvo = serviceBusiness.insertService(model).toEntity();
+        ServicoEntity servicoSalvo = serviceBusiness.insertService((mapper.map(model,ServicoEntity.class)));
 
         assertTrue(servicoSalvo != null);
     }

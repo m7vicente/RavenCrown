@@ -36,7 +36,7 @@ public class ImageUserDAO implements RavenCrownSaveImage<ImagemUsuarioModel> {
     }
 
     @Override
-    public String getImage(String idImage) {
+    public byte[] getImage(String idImage) {
         return null;
     }
 }
