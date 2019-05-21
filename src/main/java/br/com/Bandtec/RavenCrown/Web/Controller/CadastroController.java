@@ -27,6 +27,8 @@ public class CadastroController {
                 map().setEstado_Civil(source.getEstadoCivil());
                 map().setNome_Usuario(source.getNome());
                 map().setCPF_CNPJ(source.getCpfCnpj());
+                map().setTelefone_usuario(source.getTelefone());
+                map().getEndereco().setUsuario(map());
             }
         });
     }
@@ -35,13 +37,15 @@ public class CadastroController {
     @PostMapping("/cadastro")
     public UsuarioModel Cadastro (@RequestBody UsuarioModel user){
 
+        UsuarioEntity entity = mapper.map(user,UsuarioEntity.class);
 
-        UsuarioModel usr = mapper.map(userBusiness.Cadastro(mapper.map(user,UsuarioEntity.class)),UsuarioModel.class);
-
-        if(usr == null){
+        if(userBusiness.Cadastro(entity) != null){
+            user.setId_Usuario(entity.getId_Usuario());
+            user.getEndereco().setId_Endereco(entity.getEndereco().getId_Endereco());
+            return user;
+        }else {
             return null;
-        }else{
-            return usr;
         }
+
     }
 }
