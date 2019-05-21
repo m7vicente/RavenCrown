@@ -22,7 +22,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-@Commit
+//@Commit
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)

@@ -94,28 +94,4 @@ public class TodosUsuariosDALTest {
 
         assertEquals(login,user);
     }
-
-    @Test
-    public void cadastrTest(){
-
-        UserModel.setNome("João");
-        UserModel.setEmail("joaozinho@gmail.com");
-        UserModel.setSenha("12345");
-
-        UserModel.setCPF_CNPJ("111111111");
-        UserModel.setRG("aaaaaaaaaa");
-        UserModel.setTelefone("aaaaaaaaa");
-        UserModel.setPrestador(true);
-        UserModel.setSexo('M');
-        UserModel.setEstadoCivil("F");
-        Date data = new Date(1111111);
-        UserModel.setData_Nascimento(data);
-
-        UsuarioModel user = new ModelMapper().map(business.Cadastro(new ModelMapper().map(UserModel,UsuarioEntity.class)),UsuarioModel.class);
-
-
-
-        assertEquals(user, UserModel);
-    }
-
 }
