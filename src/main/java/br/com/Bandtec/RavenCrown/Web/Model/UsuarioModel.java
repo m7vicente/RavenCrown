@@ -15,11 +15,11 @@ public class UsuarioModel {
 
     private int Id_Usuario;
 
-    private int IdEndereco;
+    private EnderecoModel endereco;
 
     private ImagemUsuarioModel imagem;
 
-    private String CPF_CNPJ;
+    private String cpfCnpj;
 
     private String RG;
 
@@ -33,14 +33,14 @@ public class UsuarioModel {
 
     private Date data_Nascimento;
 
-    public UsuarioModel(String nome, String email, String senha, int idUsuario, int idEndereco, ImagemUsuarioModel imagem, String CPF_CNPJ, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
+    public UsuarioModel(String nome, String email, String senha, int idUsuario, EnderecoModel endereco, ImagemUsuarioModel imagem, String cpfcnpj, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         Id_Usuario = idUsuario;
-        IdEndereco = idEndereco;
+        this.endereco = endereco;
         this.imagem = imagem;
-        this.CPF_CNPJ = CPF_CNPJ;
+        this.cpfCnpj = cpfcnpj;
         this.RG = RG;
         this.telefone = telefone;
         Prestador = prestador;
@@ -84,12 +84,12 @@ public class UsuarioModel {
         Id_Usuario = id_Usuario;
     }
 
-    public int getIdEndereco() {
-        return IdEndereco;
+    public EnderecoModel getEndereco() {
+        return this.endereco;
     }
 
-    public void setIdEndereco(int idEndereco) {
-        IdEndereco = idEndereco;
+    public void setEndereco(EnderecoModel endereco) {
+        this.endereco = endereco;
     }
 
     public ImagemUsuarioModel getImagem() {
@@ -100,12 +100,12 @@ public class UsuarioModel {
         this.imagem = imagem;
     }
 
-    public String getCPF_CNPJ() {
-        return CPF_CNPJ;
+    public String getCpfCnpj() {
+        return cpfCnpj;
     }
 
-    public void setCPF_CNPJ(String CPF_CNPJ) {
-        this.CPF_CNPJ = CPF_CNPJ;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 
     public String getRG() {

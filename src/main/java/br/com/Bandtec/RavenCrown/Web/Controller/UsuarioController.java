@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Web.Controller;
 import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
+import br.com.Bandtec.RavenCrown.Web.Model.EnderecoModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -24,7 +25,6 @@ public class UsuarioController {
         mapper = new ModelMapper();
         mapper.addMappings(new PropertyMap<UsuarioModel, UsuarioEntity>() {
             protected void configure(){
-                map().setEndereco(new EnderecoEntity(source.getIdEndereco()));
                 map().setImagem(null);
                 map().getImagem().setUsuario(map());
                 map().setEmail_Usuario(source.getEmail());
