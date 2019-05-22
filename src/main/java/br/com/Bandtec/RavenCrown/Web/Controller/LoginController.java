@@ -4,8 +4,12 @@ import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,21 +20,41 @@ public class LoginController {
     @Autowired
     private UsuarioBusiness userBusiness;
 
+    private ModelMapper mapper;
+
+    public LoginController(){
+        this.mapper = new ModelMapper();
+
+        this.mapper.addMappings(new PropertyMap<UsuarioEntity, UsuarioModel>() {
+            protected void configure(){
+                map().setImagem(null);
+                map().setEmail(source.getEmail_Usuario());
+                map().setEstadoCivil(source.getEstado_Civil());
+                map().setNome(source.getNome_Usuario());
+                map().setCpfCnpj(source.getCPF_CNPJ());
+                map().setTelefone(source.getTelefone_usuario());
+            }
+        });
+    }
+
     @GetMapping("/login")
-    public UsuarioModel LoginController (@RequestParam("Id") int id) {
+    public ResponseEntity<UsuarioModel> LoginController (@RequestParam("Id") int id) {
         ModelMapper mapper = new ModelMapper();
-        return mapper.map(userBusiness.getUser(id),UsuarioModel.class);
+        return new ResponseEntity<>(mapper.map(userBusiness.getUser(id),UsuarioModel.class),HttpStatus.OK);
     }
 
     @CrossOrigin
     @PostMapping("/login")
-    public UsuarioModel Login (@RequestBody LoginModel user){
+    public ResponseEntity<UsuarioModel> Login (@RequestBody LoginModel user){
+
         ModelMapper mapper = new ModelMapper();
         UsuarioModel usr = mapper.map(userBusiness.Login(user.getEmail(),user.getSenha()),UsuarioModel.class);
+
         if(usr == null){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         }else{
-            return usr;
+            //usr.setImagem(ImagemUsuarioBussines.get(usr.getId_Usuario()));
+            return new ResponseEntity<>(usr, HttpStatus.OK);
         }
     }
 //    http://localhost:8080/login

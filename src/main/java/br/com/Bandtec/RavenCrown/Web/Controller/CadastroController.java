@@ -7,6 +7,8 @@ import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -35,17 +37,14 @@ public class CadastroController {
 
     @CrossOrigin
     @PostMapping("/cadastro")
-    public UsuarioModel Cadastro (@RequestBody UsuarioModel user){
-
+    public ResponseEntity<UsuarioModel> Cadastro (@RequestBody UsuarioModel user){
         UsuarioEntity entity = mapper.map(user,UsuarioEntity.class);
-
         if(userBusiness.Cadastro(entity) != null){
             user.setId_Usuario(entity.getId_Usuario());
             user.getEndereco().setId_Endereco(entity.getEndereco().getId_Endereco());
-            return user;
+            return new ResponseEntity<>(user,HttpStatus.OK);
         }else {
-            return null;
+            return new ResponseEntity<>(user,HttpStatus.CONFLICT);
         }
-
     }
 }
