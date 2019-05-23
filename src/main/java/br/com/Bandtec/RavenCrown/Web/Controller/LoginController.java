@@ -24,7 +24,6 @@ public class LoginController {
 
     public LoginController(){
         this.mapper = new ModelMapper();
-
         this.mapper.addMappings(new PropertyMap<UsuarioEntity, UsuarioModel>() {
             protected void configure(){
                 map().setImagem(null);
