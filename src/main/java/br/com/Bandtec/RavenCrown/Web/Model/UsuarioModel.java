@@ -7,31 +7,31 @@ import java.sql.Date;
 @Component
 public class UsuarioModel {
 
-    private String nome;
+    public String nome;
 
-    private String email;
+    public String email;
 
-    private String senha;
+    public String senha;
 
-    private int Id_Usuario;
+    public int Id_Usuario;
 
-    private EnderecoModel endereco;
+    public EnderecoModel endereco;
 
-    private ImagemUsuarioModel imagem;
+    public ImagemUsuarioModel imagem;
 
-    private String cpfCnpj;
+    public String cpfCnpj;
 
-    private String RG;
+    public String RG;
 
-    private String telefone;
+    public String telefone;
 
-    private boolean Prestador;
+    public boolean Prestador;
 
-    private char sexo;
+    public char sexo;
 
-    private String estadoCivil;
+    public String estadoCivil;
 
-    private Date data_Nascimento;
+    public Date data_Nascimento;
 
     public UsuarioModel(String nome, String email, String senha, int idUsuario, EnderecoModel endereco, ImagemUsuarioModel imagem, String cpfcnpj, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
         this.nome = nome;

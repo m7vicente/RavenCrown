@@ -35,6 +35,10 @@ public class EnderecoModel {
         Pais = pais;
     }
 
+    public EnderecoModel() {
+
+    }
+
     public int getId_Endereco() {
         return Id_Endereco;
     }

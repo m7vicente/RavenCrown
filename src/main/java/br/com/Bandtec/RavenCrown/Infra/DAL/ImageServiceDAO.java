@@ -1,19 +1,18 @@
 package br.com.Bandtec.RavenCrown.Infra.DAL;
 
-import br.com.Bandtec.RavenCrown.Infra.Interfaces.ImageRepositoryAdress;
+import br.com.Bandtec.RavenCrown.Infra.Interfaces.RepositoriesAdress;
 import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownSaveImage;
 import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.Base64;
 
 public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> {
 
     private final String local;
 
     public ImageServiceDAO(){
-        this.local = ImageRepositoryAdress.SERVICE.getLocais();
+        this.local = RepositoriesAdress.SERVICE_IMAGE.getLocais();
     }
 
     @Override

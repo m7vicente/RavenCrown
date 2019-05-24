@@ -1,16 +1,15 @@
 package br.com.Bandtec.RavenCrown.Web.Controller;
 
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
+import br.com.Bandtec.RavenCrown.Infra.Business.ImagemUsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -20,6 +19,8 @@ public class LoginController {
     @Autowired
     private UsuarioBusiness userBusiness;
 
+    @Autowired
+    private ImagemUsuarioBusiness userImageBusiness;
     private ModelMapper mapper;
 
     public LoginController(){
@@ -52,7 +53,7 @@ public class LoginController {
         if(usr == null){
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         }else{
-            //usr.setImagem(ImagemUsuarioBussines.get(usr.getId_Usuario()));
+            usr.setImagem(userImageBusiness.GetUserImage(usr.getId_Usuario()));
             return new ResponseEntity<>(usr, HttpStatus.OK);
         }
     }

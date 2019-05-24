@@ -3,7 +3,9 @@ package br.com.Bandtec.RavenCrown.BusinessTest;
 import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.ImagemUsuarioEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
+import br.com.Bandtec.RavenCrown.Infra.Business.ImagemUsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
+import br.com.Bandtec.RavenCrown.Web.Model.ImagemUsuarioModel;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.junit.Before;
@@ -16,6 +18,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+
 import static org.junit.Assert.assertTrue;
 
 @Transactional
@@ -25,8 +33,6 @@ public class UsuarioBusinessTest {
 
     @Autowired
     private UsuarioBusiness business;
-    @Autowired
-    private UsuarioBusiness userBusiness;
 
     LoginModel userEntity;
 
@@ -43,7 +49,7 @@ public class UsuarioBusinessTest {
         userModel.setRG("XX.XXX.XX-X");
         userModel.setCPF_CNPJ("123.456.789-09");
         userModel.setSenha("string");
-        userBusiness.Cadastro(userModel);
+        userModel = business.Cadastro(userModel);
 
     }
 
