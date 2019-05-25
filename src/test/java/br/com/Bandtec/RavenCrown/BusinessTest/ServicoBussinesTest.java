@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,14 +38,14 @@ public class ServicoBussinesTest {
     public void persistirServicoSEMImagem(){
         model = new ServicoModel();
 
-        model.setDescricao_Servico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
-        model.setId_Usuario(11);
-        model.setNome_Servico("O Famoso Pedreiro");
-        model.setLocalizacao_Fixa(false);
-        model.setPreco_Servico(33.33);
+        model.setDescricaoServico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
+        model.setIdUsuario(11);
+        model.setNomeServico("O Famoso Pedreiro");
+        model.setLocalizacaoFixa(false);
+        model.setPrecoServico(33.33);
         model.setImagem(null);
-        model.setId_Categoria(1);
-        model.setTempo_Execucao(Time.valueOf("00:10:00"));
+        model.setIdCategoria(1);
+        model.setTempoExecucao(Time.valueOf("00:10:00"));
 
         ServicoEntity servicoSalvo = serviceBusiness.insertService(mapper.map(model,ServicoEntity.class));
 
@@ -57,13 +56,13 @@ public class ServicoBussinesTest {
     public void persistirServicoCOMImagem(){
         model = new ServicoModel();
 
-        model.setDescricao_Servico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
-        model.setId_Usuario(11);
-        model.setNome_Servico("O Famoso Pedreiro");
-        model.setLocalizacao_Fixa(false);
-        model.setPreco_Servico(33.33);
-        model.setId_Categoria(1);
-        model.setTempo_Execucao(Time.valueOf("00:10:00"));
+        model.setDescricaoServico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
+        model.setIdUsuario(11);
+        model.setNomeServico("O Famoso Pedreiro");
+        model.setLocalizacaoFixa(false);
+        model.setPrecoServico(33.33);
+        model.setIdCategoria(1);
+        model.setTempoExecucao(Time.valueOf("00:10:00"));
 
         List<ImagemServicoModel> imagens = new ArrayList<>();
 

@@ -72,4 +72,22 @@ public class ImagemUsuarioBusiness {
 
         return model;
     }
+
+    public ImagemUsuarioModel UpdateUserImage(ImagemUsuarioModel model){
+
+        ImagemUsuarioEntity oldImage = imagensDal.GetImagemByUser(model.getId_Usuario());
+        if(oldImage != null)
+            imagensDal.delete(oldImage);
+
+        UsuarioEntity user = userDAL.getOne(model.getId_Usuario());
+        ImagemUsuarioEntity imagemUsuarioEntity = new ImagemUsuarioEntity();
+        imagemUsuarioEntity.setImagem_Url(fileDAO.saveImage(model));
+        imagemUsuarioEntity.setUsuario(user);
+        imagensDal.save(imagemUsuarioEntity);
+
+        model.setImagem_Id(user.getImagem().getImagem_Id());
+        model.setImagem_Url(user.getImagem().getImagem_Url());
+
+        return model;
+    }
 }

@@ -8,72 +8,72 @@ import java.util.List;
 @Component
 public class ServicoModel{
 
-    private int Id_Servico;
+    private int idServico;
 
-    public int  Id_Usuario;
+    public int idUsuario;
 
-    private int Id_Endereco;
+    private int idEndereco;
 
-    private int Id_Categoria;
+    private int idCategoria;
 
     private List<ImagemServicoModel> Imagem;
 
-    private String Nome_Servico;
+    private String nomeServico;
 
-    private String Descricao_Servico;
+    private String descricaoServico;
 
-    private Time Tempo_Execucao;
+    private Time tempoExecucao;
 
-    private Double Preco_Servico;
+    private Double precoServico;
 
-    private boolean Localizacao_Fixa;
+    private boolean localizacaoFixa;
 
     public ServicoModel() {
     }
 
-    public ServicoModel(int id_Servico, int id_Usuario, int id_Endereco, int id_Categoria, List<ImagemServicoModel> imagens, String nome_Servico, String descricao_Servico, Time tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
-        Id_Servico = id_Servico;
-        Id_Usuario = id_Usuario;
-        Id_Endereco = id_Endereco;
-        Id_Categoria = id_Categoria;
+    public ServicoModel(int idServico, int idUsuario, int idEndereco, int idCategoria, List<ImagemServicoModel> imagens, String nomeServico, String descricaoServico, Time tempoExecucao, Double precoServico, boolean localizacaoFixa) {
+        this.idServico = idServico;
+        this.idUsuario = idUsuario;
+        this.idEndereco = idEndereco;
+        this.idCategoria = idCategoria;
         Imagem = imagens;
-        Nome_Servico = nome_Servico;
-        Descricao_Servico = descricao_Servico;
-        Tempo_Execucao = tempo_Execucao;
-        Preco_Servico = preco_Servico;
-        Localizacao_Fixa = localizacao_Fixa;
+        this.nomeServico = nomeServico;
+        this.descricaoServico = descricaoServico;
+        this.tempoExecucao = tempoExecucao;
+        this.precoServico = precoServico;
+        this.localizacaoFixa = localizacaoFixa;
     }
 
-    public int getId_Servico() {
-        return Id_Servico;
+    public int getIdServico() {
+        return idServico;
     }
 
-    public void setId_Servico(int id_Servico) {
-        Id_Servico = id_Servico;
+    public void setIdServico(int idServico) {
+        this.idServico = idServico;
     }
 
-    public int getId_Usuario() {
-        return Id_Usuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
-        Id_Usuario = id_Usuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public int getId_Endereco() {
-        return Id_Endereco;
+    public int getIdEndereco() {
+        return idEndereco;
     }
 
-    public void setId_Endereco(int id_Endereco) {
-        Id_Endereco = id_Endereco;
+    public void setIdEndereco(int idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
-    public int getId_Categoria() {
-        return Id_Categoria;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setId_Categoria(int id_Categoria) {
-        Id_Categoria = id_Categoria;
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public List<ImagemServicoModel> getImagem() {
@@ -84,44 +84,44 @@ public class ServicoModel{
         Imagem = imagem;
     }
 
-    public String getNome_Servico() {
-        return Nome_Servico;
+    public String getNomeServico() {
+        return nomeServico;
     }
 
-    public void setNome_Servico(String nome_Servico) {
-        Nome_Servico = nome_Servico;
+    public void setNomeServico(String nomeServico) {
+        this.nomeServico = nomeServico;
     }
 
-    public String getDescricao_Servico() {
-        return Descricao_Servico;
+    public String getDescricaoServico() {
+        return descricaoServico;
     }
 
-    public void setDescricao_Servico(String descricao_Servico) {
-        Descricao_Servico = descricao_Servico;
+    public void setDescricaoServico(String descricaoServico) {
+        this.descricaoServico = descricaoServico;
     }
 
-    public Time getTempo_Execucao() {
-        return Tempo_Execucao;
+    public Time getTempoExecucao() {
+        return tempoExecucao;
     }
 
-    public void setTempo_Execucao(Time tempo_Execucao) {
-        Tempo_Execucao = tempo_Execucao;
+    public void setTempoExecucao(Time tempoExecucao) {
+        this.tempoExecucao = tempoExecucao;
     }
 
-    public Double getPreco_Servico() {
-        return Preco_Servico;
+    public Double getPrecoServico() {
+        return precoServico;
     }
 
-    public void setPreco_Servico(Double preco_Servico) {
-        Preco_Servico = preco_Servico;
+    public void setPrecoServico(Double precoServico) {
+        this.precoServico = precoServico;
     }
 
-    public boolean isLocalizacao_Fixa() {
-        return Localizacao_Fixa;
+    public boolean isLocalizacaoFixa() {
+        return localizacaoFixa;
     }
 
-    public void setLocalizacao_Fixa(boolean localizacao_Fixa) {
-        Localizacao_Fixa = localizacao_Fixa;
+    public void setLocalizacaoFixa(boolean localizacaoFixa) {
+        this.localizacaoFixa = localizacaoFixa;
     }
 
 }
