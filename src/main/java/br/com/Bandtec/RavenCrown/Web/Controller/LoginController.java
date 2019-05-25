@@ -47,6 +47,7 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<UsuarioModel> Login (@RequestBody LoginModel user){
 
+        try{
         ModelMapper mapper = new ModelMapper();
         UsuarioModel usr = mapper.map(userBusiness.Login(user.getEmail(),user.getSenha()),UsuarioModel.class);
 
@@ -56,6 +57,10 @@ public class LoginController {
             usr.setImagem(userImageBusiness.GetUserImage(usr.getId_Usuario()));
             return new ResponseEntity<>(usr, HttpStatus.OK);
         }
+        }catch (Exception erro){
+            return new ResponseEntity<>(null,HttpStatus.NO_CONTENT);
+        }
+
     }
 //    http://localhost:8080/login
     //    {"email" : "email@email.com","senha" : "))@@@@$$$"}

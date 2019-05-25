@@ -46,17 +46,16 @@ public class ServicoController {
     }
 
     @GetMapping("/Servico")
-    public ServicoModel getServico(@RequestParam("id") int id){
+    public ResponseEntity<ServicoModel> getServico(@RequestParam("id") int id){
         ModelMapper mapper = new ModelMapper();
 
         ServicoModel model = mapper.map(servicoBussines.getById(id),ServicoModel.class);
         model.setImagem(imagemBussines.getServiceImages(model.getIdServico()));
-
-        return model;
+        return ResponseEntity.ok(model);
     }
 
     @PostMapping("/Servico")
-    public ServicoModel insertServico(@RequestBody ServicoModel model){
+    public ResponseEntity<ServicoModel> insertServico(@RequestBody ServicoModel model){
 
 
         ServicoEntity servicoEntity = mapper.map(model, ServicoEntity.class);
@@ -67,13 +66,16 @@ public class ServicoController {
         servicoEntity = servicoBussines.insertService(servicoEntity);
         model = mapper.map(servicoEntity, ServicoModel.class);
         model.setIdUsuario(servicoEntity.Prestador.getId_Usuario());
-        return  model;
+        return ResponseEntity.ok(model);
     }
 
     @PutMapping("/Servico")
-    public ServicoModel updateServico(@RequestBody ServicoModel model){
-        servicoBussines.UpdateService(mapper.map(model, ServicoEntity.class));
-        return model;
+    public ResponseEntity<ServicoModel> updateServico(@RequestBody ServicoModel model){
+        ServicoEntity servicoEntity = mapper.map(model, ServicoEntity.class);
+        servicoEntity.setPrestador(userBussines.getUser(model.getIdUsuario()));
+        servicoEntity.setCategoria(categoriasDAL.getOne(model.getIdCategoria()));
+        servicoBussines.UpdateService(servicoEntity);
+        return ResponseEntity.ok(model);
     }
 
     @DeleteMapping("/Servico")
