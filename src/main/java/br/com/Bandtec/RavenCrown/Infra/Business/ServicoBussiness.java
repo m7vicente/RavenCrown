@@ -47,4 +47,9 @@ public class ServicoBussiness {
         return servicosDAL.GetAllServicesByUserId(id);
     }
 
+    public List<ServicoEntity> GetByCategory(int id) {
+
+        return servicosDAL.getByCategoryId(id);
+
+    }
 }

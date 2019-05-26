@@ -9,10 +9,12 @@ import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class ServicoController {
@@ -26,12 +28,11 @@ public class ServicoController {
     @Autowired
     TodosCategoriasDAL categoriasDAL;
 
-    private ModelMapper mapper;
+    private ModelMapper modelMapper;
 
     public ServicoController(){
-        mapper = new ModelMapper();
-
-        mapper.addMappings(new PropertyMap<ServicoModel, ServicoEntity>() {
+        modelMapper = new ModelMapper();
+        modelMapper.addMappings(new PropertyMap<ServicoModel, ServicoEntity>() {
             @Override
             protected void configure() {
                 //map().setPrestador(userBussines.getUser(source.getIdUsuario()));
@@ -47,31 +48,49 @@ public class ServicoController {
 
     @GetMapping("/Servico")
     public ResponseEntity<ServicoModel> getServico(@RequestParam("id") int id){
-        ModelMapper mapper = new ModelMapper();
-
-        ServicoModel model = mapper.map(servicoBussines.getById(id),ServicoModel.class);
+        ServicoModel model = modelMapper.map(servicoBussines.getById(id),ServicoModel.class);
         model.setImagem(imagemBussines.getServiceImages(model.getIdServico()));
         return ResponseEntity.ok(model);
+    }
+
+    @GetMapping("/Servicos/Categoria")
+    public ResponseEntity<List<ServicoModel>> getServicoByCategory(@RequestParam("categoria") int id){
+        try {
+            List<ServicoModel> services = new ArrayList<>();
+            servicoBussines.GetByCategory(id).forEach(x -> {
+                ServicoModel servico = modelMapper.map(x, ServicoModel.class);
+                servico.setIdUsuario(x.getPrestador().getId_Usuario());
+                try {
+                    servico.setImagem(imagemBussines.getServiceImages(x.getId_Servico()));
+                }catch (Exception ex){
+                    servico.setImagem(null);
+                }
+                services.add(servico);
+            });
+            return ResponseEntity.ok(services);
+        }catch (Exception x){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/Servico")
     public ResponseEntity<ServicoModel> insertServico(@RequestBody ServicoModel model){
 
 
-        ServicoEntity servicoEntity = mapper.map(model, ServicoEntity.class);
+        ServicoEntity servicoEntity = modelMapper.map(model, ServicoEntity.class);
 
         servicoEntity.setPrestador(userBussines.getUser(model.getIdUsuario()));
         servicoEntity.setCategoria(categoriasDAL.getOne(model.getIdCategoria()));
 
         servicoEntity = servicoBussines.insertService(servicoEntity);
-        model = mapper.map(servicoEntity, ServicoModel.class);
+        model = modelMapper.map(servicoEntity, ServicoModel.class);
         model.setIdUsuario(servicoEntity.Prestador.getId_Usuario());
         return ResponseEntity.ok(model);
     }
 
     @PutMapping("/Servico")
     public ResponseEntity<ServicoModel> updateServico(@RequestBody ServicoModel model){
-        ServicoEntity servicoEntity = mapper.map(model, ServicoEntity.class);
+        ServicoEntity servicoEntity = modelMapper.map(model, ServicoEntity.class);
         servicoEntity.setPrestador(userBussines.getUser(model.getIdUsuario()));
         servicoEntity.setCategoria(categoriasDAL.getOne(model.getIdCategoria()));
         servicoBussines.UpdateService(servicoEntity);
@@ -80,7 +99,7 @@ public class ServicoController {
 
     @DeleteMapping("/Servico")
     public ResponseEntity<String> deleteServico(@RequestBody ServicoModel model){
-        servicoBussines.DeleteService(mapper.map(model,ServicoEntity.class));
+        servicoBussines.DeleteService(modelMapper.map(model,ServicoEntity.class));
         return ResponseEntity.ok("Apagado com sucesso");
     }
 }

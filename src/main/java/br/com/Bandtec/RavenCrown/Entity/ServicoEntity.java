@@ -18,7 +18,7 @@ public class ServicoEntity {
     @JoinColumn(name = "id_usuario_prestador", referencedColumnName = "id_usuario")
     public UsuarioEntity Prestador;
 
-    @OneToOne(cascade = CascadeType.DETACH)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco", referencedColumnName = "Id_endereco")
     private EnderecoEntity Endereco;
 
