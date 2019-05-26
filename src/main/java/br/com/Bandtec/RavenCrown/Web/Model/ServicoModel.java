@@ -2,6 +2,7 @@ package br.com.Bandtec.RavenCrown.Web.Model;
 
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ServicoModel{
 
     private String descricaoServico;
 
-    private Time tempoExecucao;
+    private Date tempoExecucao;
 
     private Double precoServico;
 
@@ -31,7 +32,7 @@ public class ServicoModel{
     public ServicoModel() {
     }
 
-    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> imagem, String nomeServico, String descricaoServico, Time tempoExecucao, Double precoServico, boolean localizacaoFixa) {
+    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> imagem, String nomeServico, String descricaoServico, Date tempoExecucao, Double precoServico, boolean localizacaoFixa) {
         this.idServico = idServico;
         this.idUsuario = idUsuario;
         Endereco = endereco;
@@ -100,11 +101,11 @@ public class ServicoModel{
         this.descricaoServico = descricaoServico;
     }
 
-    public Time getTempoExecucao() {
+    public Date getTempoExecucao() {
         return tempoExecucao;
     }
 
-    public void setTempoExecucao(Time tempoExecucao) {
+    public void setTempoExecucao(Date tempoExecucao) {
         this.tempoExecucao = tempoExecucao;
     }
 

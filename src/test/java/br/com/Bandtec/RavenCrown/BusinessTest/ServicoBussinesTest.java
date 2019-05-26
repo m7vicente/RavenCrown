@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class ServicoBussinesTest {
         model.setPrecoServico(33.33);
         model.setImagem(null);
         model.setIdCategoria(1);
-        model.setTempoExecucao(Time.valueOf("00:10:00"));
+        model.setTempoExecucao(Date.valueOf("00:10:00"));
 
         ServicoEntity servicoSalvo = serviceBusiness.insertService(mapper.map(model,ServicoEntity.class));
 
@@ -62,7 +63,7 @@ public class ServicoBussinesTest {
         model.setLocalizacaoFixa(false);
         model.setPrecoServico(33.33);
         model.setIdCategoria(1);
-        model.setTempoExecucao(Time.valueOf("00:10:00"));
+        model.setTempoExecucao(Date.valueOf("00:10:00"));
 
         List<ImagemServicoModel> imagens = new ArrayList<>();
 
