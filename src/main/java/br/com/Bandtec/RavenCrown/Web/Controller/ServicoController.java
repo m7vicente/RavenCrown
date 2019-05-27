@@ -5,6 +5,7 @@ import br.com.Bandtec.RavenCrown.Infra.Business.ImagemServicoBussines;
 import br.com.Bandtec.RavenCrown.Infra.Business.ServicoBussiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosCategoriasDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosEnderecosDAL;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -27,8 +28,9 @@ public class ServicoController {
     private ImagemServicoBussines imagemBussines;
     @Autowired
     private UsuarioBusiness userBussines;
+
     @Autowired
-    TodosCategoriasDAL categoriasDAL;
+    private TodosCategoriasDAL categoriasDAL;
 
     private ModelMapper modelMapper;
 

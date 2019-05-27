@@ -25,10 +25,10 @@ public class DataServicoBussiness {
         ServicoEntity servico = servicoBussiness.getById(data.getIdServico());
 
         for (DataServicoEntity x : servico.getDatas()) {
-            if (x.getDt_Agendamento() != data.getDt_Agendamento()) {
-                if (x.getDt_Agendamento().getDay() == data.getDt_Agendamento().getDay()) {
+            if (x.getDt_Agendamento() != data.getDtAgendamento()) {
+                if (x.getDt_Agendamento().getDay() == data.getDtAgendamento().getDay()) {
                     if ((x.getDt_Agendamento().getTime() + servico.getTempo_Execucao().getTime())
-                            < data.getDt_Agendamento().getTime()) {
+                            < data.getDtAgendamento().getTime()) {
                         available = false;
                         break;
                     }

@@ -1,7 +1,12 @@
 package br.com.Bandtec.RavenCrown.BusinessTest;
 
+import br.com.Bandtec.RavenCrown.DALTest.TodasCategoriasDALTest;
+import br.com.Bandtec.RavenCrown.Entity.ImagemServicoEntity;
 import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
+import br.com.Bandtec.RavenCrown.Infra.Business.ImagemServicoBussines;
 import br.com.Bandtec.RavenCrown.Infra.Business.ServicoBussiness;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosCategoriasDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.TodosUsuariosDAL;
 import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.junit.Test;
@@ -17,7 +22,13 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
@@ -31,41 +42,60 @@ public class ServicoBussinesTest {
     @Autowired
     ServicoBussiness serviceBusiness;
 
-    ServicoModel model;
+    @Autowired
+    TodosUsuariosDAL userDAL;
+
+    @Autowired
+    TodosCategoriasDAL catDAL;
+
+    @Autowired
+    ImagemServicoBussines imagemServicoBussines;
+
+    ServicoEntity model;
 
     ModelMapper mapper = new ModelMapper();
 
     @Test
     public void persistirServicoSEMImagem(){
-        model = new ServicoModel();
+        model = new ServicoEntity();
 
-        model.setDescricaoServico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
-        model.setIdUsuario(11);
-        model.setNomeServico("O Famoso Pedreiro");
-        model.setLocalizacaoFixa(false);
-        model.setPrecoServico(33.33);
-        model.setImagem(null);
-        model.setIdCategoria(1);
-        model.setTempoExecucao(Date.valueOf("00:10:00"));
+        model.setDescricao_Servico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
+        model.setPrestador(userDAL.getOne(11));
+        model.setNome_Servico("O Famoso Pedreiro");
+        model.setLocalizacao_Fixa(false);
+        model.setPreco_Servico(33.33);
+        model.setImagens(null);
+        model.setCategoria(catDAL.getOne(1));
 
-        ServicoEntity servicoSalvo = serviceBusiness.insertService(mapper.map(model,ServicoEntity.class));
+        Time timer = new Time(Time.valueOf("10:00:00").getTime());
+        java.sql.Date date = new java.sql.Date(timer.getTime());
+
+        model.setTempo_Execucao(date);
+
+        ServicoEntity servicoSalvo = serviceBusiness.insertService(model);
 
         assertTrue(servicoSalvo != null);
     }
 
     @Test
     public void persistirServicoCOMImagem(){
-        model = new ServicoModel();
+        model = new ServicoEntity();
 
-        model.setDescricaoServico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
-        model.setIdUsuario(11);
-        model.setNomeServico("O Famoso Pedreiro");
-        model.setLocalizacaoFixa(false);
-        model.setPrecoServico(33.33);
-        model.setIdCategoria(1);
-        model.setTempoExecucao(Date.valueOf("00:10:00"));
+        model.setDescricao_Servico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
+        model.setPrestador(userDAL.getOne(11));
+        model.setNome_Servico("O Famoso Pedreiro");
+        model.setLocalizacao_Fixa(false);
+        model.setPreco_Servico(33.33);
+        model.setCategoria(catDAL.getOne(1));
 
-        List<ImagemServicoModel> imagens = new ArrayList<>();
+        Time timer = new Time(Time.valueOf("10:00:00").getTime());
+        java.sql.Date date = new java.sql.Date(timer.getTime());
+
+        model.setTempo_Execucao(date);
+
+        ServicoEntity servicoSalvo = serviceBusiness.insertService((mapper.map(model,ServicoEntity.class)));
+
+        List<ImagemServicoEntity> imagens = new ArrayList<>();
 
         BufferedImage bImage = null;
         try {
@@ -82,14 +112,19 @@ public class ServicoBussinesTest {
 
         ImagemServicoModel imagem = new ImagemServicoModel();
         imagem.setImage(bos.toByteArray());
-        imagem.setId_Usuario(11);
-        imagens.add(imagem);
+        imagem.setId_Usuario(servicoSalvo.getPrestador().getId_Usuario());
+        imagem.setId_Servico(servicoSalvo.getId_Servico());
 
-        model.setImagem(imagens);
+        imagemServicoBussines.SaveImage(imagem);
 
-        ServicoEntity servicoSalvo = serviceBusiness.insertService((mapper.map(model,ServicoEntity.class)));
+        ImagemServicoEntity serviceImage = new ImagemServicoEntity();
+        serviceImage.setServico(servicoSalvo);
+        serviceImage.setUsuario(servicoSalvo.getPrestador());
+        serviceImage.setImagem_URL(imagem.getImagem_URL());
+        imagens.add(serviceImage);
+        servicoSalvo.setImagens(imagens);
 
-        assertTrue(servicoSalvo != null);
+        assertTrue(servicoSalvo != null && !servicoSalvo.getImagens().isEmpty());
     }
 
 

@@ -9,7 +9,7 @@ import java.sql.Date;
 
 public class DataServicoModel {
 
-    private int Id_data_agendado;
+    private int IdDataAgendamento;
 
     private int IdPrestador;
 
@@ -21,31 +21,30 @@ public class DataServicoModel {
 
     private int IdDemanda;
 
-    private Date Dt_Agendamento;
+    private Date DtAgendamento;
 
-    private char Tipo_Reserva;
+    private char TipoReserva;
 
     public DataServicoModel() {
     }
 
-    public DataServicoModel(int id_data_agendado, int idPrestador, int idConsumidor, int idServico, int idContrato, int idDemanda, Date dt_Agendamento, char tipo_Reserva) {
-        Id_data_agendado = id_data_agendado;
+    public DataServicoModel(int idDataAgendamento, int idPrestador, int idConsumidor, int idServico, int idContrato, int idDemanda, Date dtAgendamento, char tipoReserva) {
+        IdDataAgendamento = idDataAgendamento;
         IdPrestador = idPrestador;
         IdConsumidor = idConsumidor;
         IdServico = idServico;
         IdContrato = idContrato;
         IdDemanda = idDemanda;
-        Dt_Agendamento = dt_Agendamento;
-        Tipo_Reserva = tipo_Reserva;
+        DtAgendamento = dtAgendamento;
+        TipoReserva = tipoReserva;
     }
 
-
-    public int getId_data_agendado() {
-        return Id_data_agendado;
+    public int getIdDataAgendamento() {
+        return IdDataAgendamento;
     }
 
-    public void setId_data_agendado(int id_data_agendado) {
-        Id_data_agendado = id_data_agendado;
+    public void setIdDataAgendamento(int idDataAgendamento) {
+        IdDataAgendamento = idDataAgendamento;
     }
 
     public int getIdPrestador() {
@@ -88,19 +87,19 @@ public class DataServicoModel {
         IdDemanda = idDemanda;
     }
 
-    public Date getDt_Agendamento() {
-        return Dt_Agendamento;
+    public Date getDtAgendamento() {
+        return DtAgendamento;
     }
 
-    public void setDt_Agendamento(Date dt_Agendamento) {
-        Dt_Agendamento = dt_Agendamento;
+    public void setDtAgendamento(Date dtAgendamento) {
+        DtAgendamento = dtAgendamento;
     }
 
-    public char getTipo_Reserva() {
-        return Tipo_Reserva;
+    public char getTipoReserva() {
+        return TipoReserva;
     }
 
-    public void setTipo_Reserva(char tipo_Reserva) {
-        Tipo_Reserva = tipo_Reserva;
+    public void setTipoReserva(char tipoReserva) {
+        TipoReserva = tipoReserva;
     }
 }

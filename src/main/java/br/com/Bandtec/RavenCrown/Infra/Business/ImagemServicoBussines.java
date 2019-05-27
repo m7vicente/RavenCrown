@@ -33,4 +33,10 @@ public class ImagemServicoBussines {
         return  images;
     }
 
+    public void SaveImage (ImagemServicoModel imagem){
+        ImageServiceDAO imageDAO = new ImageServiceDAO();
+        imagem.setImagem_URL(imageDAO.saveImage(imagem));
+
+    }
+
 }
