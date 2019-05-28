@@ -12,6 +12,7 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class TodosServicosDALTest {
         servico.setNome_Servico("Pias e Tanques Conserto");
         servico.setPreco_Servico(33.59);
         servico.setPrestador(usuariosDAL.getOne(10));
-        servico.setTempo_Execucao(Time.valueOf("00:10:00"));
+        servico.setTempo_Execucao(new Date(Time.valueOf("00:10:00").getTime()));
 
         servicosDAL.save(servico);
 

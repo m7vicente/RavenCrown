@@ -25,7 +25,7 @@ public class DataServicoEntity {
     @JoinColumn(name = "id_servico", referencedColumnName = "id_servico")
     private ServicoEntity Servico;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contrato", referencedColumnName = "id_contrato")
     private ContratoEntity Contrato;
 
@@ -40,17 +40,6 @@ public class DataServicoEntity {
     public DataServicoEntity() {
     }
 
-    public DataServicoEntity(int id_data_agendado, UsuarioEntity prestador, UsuarioEntity consumidor, ServicoEntity servico, ContratoEntity contrato, DemandaEntity demanda, Date dt_Agendamento, char tipo_Reserva) {
-        Id_data_agendado = id_data_agendado;
-        Prestador = prestador;
-        Consumidor = consumidor;
-        Servico = servico;
-        Contrato = contrato;
-        Demanda = demanda;
-        Dt_Agendamento = dt_Agendamento;
-        Tipo_Reserva = tipo_Reserva;
-    }
-
     public int getId_data_agendado() {
         return Id_data_agendado;
     }
@@ -59,27 +48,59 @@ public class DataServicoEntity {
         Id_data_agendado = id_data_agendado;
     }
 
-    public UsuarioEntity getPrestador() { return Prestador; }
+    public UsuarioEntity getPrestador() {
+        return Prestador;
+    }
 
-    public void setPrestador(UsuarioEntity Prestador) { this.Prestador = Prestador; }
+    public void setPrestador(UsuarioEntity prestador) {
+        Prestador = prestador;
+    }
 
-    public UsuarioEntity getConsumidor() { return Consumidor; }
+    public UsuarioEntity getConsumidor() {
+        return Consumidor;
+    }
 
-    public void setId_Usuario_Consumidor(UsuarioEntity Consumidor) { this.Consumidor = Consumidor; }
+    public void setConsumidor(UsuarioEntity consumidor) {
+        Consumidor = consumidor;
+    }
 
-    public ContratoEntity getContrato() { return Contrato; }
+    public ServicoEntity getServico() {
+        return Servico;
+    }
 
-    public void setId_Contrato(ContratoEntity Contrato) { this.Contrato = Contrato; }
+    public void setServico(ServicoEntity servico) {
+        Servico = servico;
+    }
 
-    public DemandaEntity getDemanda() { return Demanda; }
+    public ContratoEntity getContrato() {
+        return Contrato;
+    }
 
-    public void setDemanda(DemandaEntity Demanda) { this.Demanda = Demanda; }
+    public void setContrato(ContratoEntity contrato) {
+        Contrato = contrato;
+    }
 
-    public Date getDt_Agendamento() { return Dt_Agendamento; }
+    public DemandaEntity getDemanda() {
+        return Demanda;
+    }
 
-    public void setDt_Agendamento(Date dt_Agendamento) { Dt_Agendamento = dt_Agendamento; }
+    public void setDemanda(DemandaEntity demanda) {
+        Demanda = demanda;
+    }
 
-    public char getTipo_Reserva() { return Tipo_Reserva; }
+    public Date getDt_Agendamento() {
+        return Dt_Agendamento;
+    }
 
-    public void setTipo_Reserva(char tipo_Reserva) { Tipo_Reserva = tipo_Reserva; }
+    public void setDt_Agendamento(Date dt_Agendamento) {
+        Dt_Agendamento = dt_Agendamento;
+    }
+
+    public char getTipo_Reserva() {
+        return Tipo_Reserva;
+    }
+
+    public void setTipo_Reserva(char tipo_Reserva) {
+        Tipo_Reserva = tipo_Reserva;
+    }
 }

@@ -1,6 +1,7 @@
 package br.com.Bandtec.RavenCrown.Entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="TBD_Contrato")
@@ -31,6 +32,9 @@ public class ContratoEntity {
     @JoinColumn(name = "id_demanda", referencedColumnName = "id_demanda")
     private DemandaEntity Demanda;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Contrato")
+    private List<DataServicoEntity> Datas;
+
     private double Valor_Final;
 
     private boolean Pago;
@@ -42,13 +46,14 @@ public class ContratoEntity {
     public ContratoEntity() {
     }
 
-    public ContratoEntity(int id_Contrato, ServicoEntity servico, EnderecoEntity endereco, UsuarioEntity prestador, UsuarioEntity consumidor, DemandaEntity demanda, double valor_Final, boolean pago, boolean aprovado_Consumidor, boolean aprovado_Prestador) {
+    public ContratoEntity(int id_Contrato, ServicoEntity servico, EnderecoEntity endereco, UsuarioEntity prestador, UsuarioEntity consumidor, DemandaEntity demanda, List<DataServicoEntity> datas, double valor_Final, boolean pago, boolean aprovado_Consumidor, boolean aprovado_Prestador) {
         Id_Contrato = id_Contrato;
         Servico = servico;
         Endereco = endereco;
         Prestador = prestador;
         Consumidor = consumidor;
         Demanda = demanda;
+        Datas = datas;
         Valor_Final = valor_Final;
         Pago = pago;
         Aprovado_Consumidor = aprovado_Consumidor;
@@ -98,4 +103,12 @@ public class ContratoEntity {
     public boolean isAprovado_Prestador() { return Aprovado_Prestador; }
 
     public void setAprovado_Prestador(boolean aprovado_Prestador) { Aprovado_Prestador = aprovado_Prestador; }
+
+    public List<DataServicoEntity> getDatas() {
+        return Datas;
+    }
+
+    public void setDatas(List<DataServicoEntity> datas) {
+        Datas = datas;
+    }
 }
