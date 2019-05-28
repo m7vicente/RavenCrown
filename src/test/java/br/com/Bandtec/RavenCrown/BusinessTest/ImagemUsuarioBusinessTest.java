@@ -24,7 +24,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
-@Commit
+//@Commit
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)

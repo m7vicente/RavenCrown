@@ -15,4 +15,12 @@ public class EnderecoBussiness {
         return enderecosDAL.getOne(id);
     }
 
+    public boolean UpdateEndereco(EnderecoEntity enderecoEntity) {
+        try{
+            enderecosDAL.save(enderecoEntity);
+            return true;
+        }catch (Exception ex){
+            return  false;
+        }
+    }
 }
