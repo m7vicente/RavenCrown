@@ -2,6 +2,7 @@ package br.com.Bandtec.RavenCrown.Web.Controller;
 
 import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
+import br.com.Bandtec.RavenCrown.Infra.Business.ImagemUsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.modelmapper.ModelMapper;
@@ -16,6 +17,9 @@ public class CadastroController {
 
     @Autowired
     private UsuarioBusiness userBusiness;
+
+    @Autowired
+    private ImagemUsuarioBusiness imagemUsuarioBusiness;
 
     private final ModelMapper mapper;
 
@@ -42,6 +46,18 @@ public class CadastroController {
         if(userBusiness.Cadastro(entity) != null){
             user.setId_Usuario(entity.getId_Usuario());
             user.getEndereco().setId_Endereco(entity.getEndereco().getId_Endereco());
+            return new ResponseEntity<>(user,HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(user,HttpStatus.CONFLICT);
+        }
+    }
+
+    @CrossOrigin
+    @PutMapping("/cadastro")
+    public ResponseEntity<UsuarioModel> Atualizar (@RequestBody UsuarioModel user){
+        UsuarioEntity entity = mapper.map(user,UsuarioEntity.class);
+        if(userBusiness.Update(entity)){
+            imagemUsuarioBusiness.InsertUserImage(user.imagem);
             return new ResponseEntity<>(user,HttpStatus.OK);
         }else {
             return new ResponseEntity<>(user,HttpStatus.CONFLICT);

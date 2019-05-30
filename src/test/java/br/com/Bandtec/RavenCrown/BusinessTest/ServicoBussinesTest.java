@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +34,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-//@Commit
+@Commit
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -81,14 +82,14 @@ public class ServicoBussinesTest {
     public void persistirServicoCOMImagem(){
         model = new ServicoEntity();
 
-        model.setDescricao_Servico("Alteração de pisos e azuleijos da sua cozinha, montamos pias de arrumamos calhas");
+        model.setDescricao_Servico("Criação de aplicações que monitoram o sistema operacional");
         model.setPrestador(userDAL.getOne(11));
-        model.setNome_Servico("O Famoso Pedreiro");
+        model.setNome_Servico("Full bitfrosts");
         model.setLocalizacao_Fixa(false);
-        model.setPreco_Servico(33.33);
+        model.setPreco_Servico(100.33);
         model.setCategoria(catDAL.getOne(1));
 
-        Time timer = new Time(Time.valueOf("10:00:00").getTime());
+        Time timer = new Time(Time.valueOf("00:10:00").getTime());
         java.sql.Date date = new java.sql.Date(timer.getTime());
 
         model.setTempo_Execucao(date);
@@ -115,7 +116,7 @@ public class ServicoBussinesTest {
         imagem.setId_Usuario(servicoSalvo.getPrestador().getId_Usuario());
         imagem.setId_Servico(servicoSalvo.getId_Servico());
 
-        imagemServicoBussines.SaveImage(imagem);
+        imagemServicoBussines.SaveImage(imagem,servicoSalvo);
 
         ImagemServicoEntity serviceImage = new ImagemServicoEntity();
         serviceImage.setServico(servicoSalvo);

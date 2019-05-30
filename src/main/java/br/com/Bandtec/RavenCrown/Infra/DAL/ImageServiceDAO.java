@@ -4,8 +4,9 @@ import br.com.Bandtec.RavenCrown.Infra.Interfaces.RepositoriesAdress;
 import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownSaveImage;
 import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> {
 
@@ -29,6 +30,7 @@ public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> 
         catch (Exception e)
         {
             imageURL = null;
+            System.out.println("Erro on save image: "+e.toString());
         }
 
         return imageURL;
@@ -36,6 +38,19 @@ public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> 
 
     @Override
     public byte[] getImage(String ImageURL) {
-        return null;
+
+        BufferedImage bImage = null;
+        try {
+            bImage = ImageIO.read(new File(ImageURL));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(bImage, "png", bos );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bos.toByteArray();
     }
 }

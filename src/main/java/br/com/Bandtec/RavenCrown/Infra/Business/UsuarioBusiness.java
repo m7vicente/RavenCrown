@@ -67,4 +67,16 @@ public class UsuarioBusiness {
         }
     }
 
+    public boolean Update(UsuarioEntity entity) {
+
+        UsuarioEntity usuarioEncontrado = userdal.getByEmail(entity.getEmail_Usuario());
+        if(usuarioEncontrado != null){
+            userdal.save(entity);
+            System.out.println("Usuário cadastrado com sucesso!");
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

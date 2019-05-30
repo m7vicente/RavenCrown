@@ -6,6 +6,7 @@ import br.com.Bandtec.RavenCrown.Infra.Business.ServicoBussiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosCategoriasDAL;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosEnderecosDAL;
+import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -19,6 +20,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class ServicoController {
 
@@ -67,6 +69,7 @@ public class ServicoController {
                 try {
                     servico.setImagem(imagemBussines.getServiceImages(x.getId_Servico()));
                 }catch (Exception ex){
+                    System.out.println("Error: "+ex.toString());
                     servico.setImagem(null);
                 }
                 services.add(servico);
@@ -87,6 +90,13 @@ public class ServicoController {
         servicoEntity.setCategoria(categoriasDAL.getOne(model.getIdCategoria()));
 
         servicoEntity = servicoBussines.insertService(servicoEntity);
+
+        if(!model.getImagem().isEmpty()){
+            for(ImagemServicoModel x : model.getImagem()){
+                imagemBussines.SaveImage(x,servicoEntity);
+            };
+        }
+
         model = modelMapper.map(servicoEntity, ServicoModel.class);
         model.setIdUsuario(servicoEntity.Prestador.getId_Usuario());
         return ResponseEntity.ok(model);
