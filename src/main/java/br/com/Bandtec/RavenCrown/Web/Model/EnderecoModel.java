@@ -1,7 +1,5 @@
 package br.com.Bandtec.RavenCrown.Web.Model;
 
-import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
-
 public class EnderecoModel {
 
     private int Id_Endereco;
@@ -24,9 +22,7 @@ public class EnderecoModel {
 
     private String Pais;
 
-    private UsuarioEntity Usuario;
-
-    public EnderecoModel(int id_Endereco, String rua, String cep, String complemento, String numero, String referencia, String bairro, String cidade, String estado, String pais, UsuarioEntity usuario) {
+    public EnderecoModel(int id_Endereco, String rua, String cep, String complemento, String numero, String referencia, String bairro, String cidade, String estado, String pais) {
         Id_Endereco = id_Endereco;
         Rua = rua;
         Cep = cep;
@@ -37,6 +33,89 @@ public class EnderecoModel {
         Cidade = cidade;
         Estado = estado;
         Pais = pais;
-        Usuario = usuario;
+    }
+
+    public EnderecoModel() {
+
+    }
+
+    public int getId_Endereco() {
+        return Id_Endereco;
+    }
+
+    public void setId_Endereco(int id_Endereco) {
+        Id_Endereco = id_Endereco;
+    }
+
+    public String getRua() {
+        return Rua;
+    }
+
+    public void setRua(String rua) {
+        Rua = rua;
+    }
+
+    public String getCep() {
+        return Cep;
+    }
+
+    public void setCep(String cep) {
+        Cep = cep;
+    }
+
+    public String getComplemento() {
+        return Complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        Complemento = complemento;
+    }
+
+    public String getNumero() {
+        return Numero;
+    }
+
+    public void setNumero(String numero) {
+        Numero = numero;
+    }
+
+    public String getReferencia() {
+        return Referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        Referencia = referencia;
+    }
+
+    public String getBairro() {
+        return Bairro;
+    }
+
+    public void setBairro(String bairro) {
+        Bairro = bairro;
+    }
+
+    public String getCidade() {
+        return Cidade;
+    }
+
+    public void setCidade(String cidade) {
+        Cidade = cidade;
+    }
+
+    public String getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(String estado) {
+        Estado = estado;
+    }
+
+    public String getPais() {
+        return Pais;
+    }
+
+    public void setPais(String pais) {
+        Pais = pais;
     }
 }

@@ -5,13 +5,11 @@ import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
 import br.com.Bandtec.RavenCrown.Infra.DAL.ImageServiceDAO;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosImagemServicoDAL;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosServicosDAL;
-import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 import br.com.Bandtec.RavenCrown.Web.Model.ServicoModel;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,38 +28,28 @@ public class ServicoBussiness {
         return servicosDAL.getOne(id);
     }
 
-    public ServicoModel insertService(ServicoModel servico){
+    public ServicoEntity insertService(ServicoEntity servico){
 
-        ServicoEntity servicoEntity = servicosDAL.save(servico.toEntity());
+        ServicoEntity servicoEntity = servicosDAL.save(servico);
 
-        if(servico.getImagens() != null) {
-            for(int i = 0; i < servico.getImagens().size();i++){
-                servico.getImagens().get(i).setId_Servico(servicoEntity.getId_Servico());
-                servico.getImagens().get(i).setId_Usuario(servicoEntity.getPrestador().getId_Usuario());
-                servico.getImagens().get(i).setImagem_URL(new ImageServiceDAO().saveImage(servico.getImagens().get(i)));
-
-                ImagemServicoEntity imagemServicoEntity = servico.getImagens().get(i).toEntity();
-                imagemServicoEntity.setServico(servicoEntity);
-
-                servicoEntity.getImagens().add(imagemServicoEntity);
-                }
-            servicosDAL.save(servicoEntity);
-        }
-
-
-        return new ServicoModel(servicoEntity);
+        return servicoEntity;
     }
 
-    public void UpdateService(ServicoModel model) {
-        servicosDAL.save(model.toEntity());
+    public void UpdateService(ServicoEntity model) {
+        servicosDAL.save(model);
     }
 
-    public void DeleteService(ServicoModel model) {
-        servicosDAL.delete(model.toEntity());
+    public void DeleteService(ServicoEntity model) {
+        servicosDAL.delete(model);
     }
 
     public List<ServicoEntity>ObterTodosServicosPorPrestadorId(int id){
         return servicosDAL.GetAllServicesByUserId(id);
     }
 
+    public List<ServicoEntity> GetByCategory(int id) {
+
+        return servicosDAL.getByCategoryId(id);
+
+    }
 }

@@ -3,12 +3,10 @@ package br.com.Bandtec.RavenCrown.Web.Model;
 import br.com.Bandtec.RavenCrown.Entity.ImagemServicoEntity;
 import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
-import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ImagemServicoModel implements RavenCrownModel<ImagemServicoEntity> {
-
+public class ImagemServicoModel{
 
     private int Id_Imagem_Servico;
 
@@ -19,10 +17,6 @@ public class ImagemServicoModel implements RavenCrownModel<ImagemServicoEntity> 
     private String Imagem_URL;
 
     private byte[] image;
-
-    public ImagemServicoModel(ImagemServicoEntity entity){
-        this.populateModel(entity);
-    }
 
     public int getId_Imagem_Servico() {
         return Id_Imagem_Servico;
@@ -73,24 +67,5 @@ public class ImagemServicoModel implements RavenCrownModel<ImagemServicoEntity> 
         Id_Usuario = id_Usuario;
         Imagem_URL = imagem_URL;
         this.image = image;
-    }
-
-    @Override
-    public void populateModel(ImagemServicoEntity object) {
-        this.setId_Imagem_Servico(object.getId_Imagem_Servico());
-        this.setId_Usuario(object.getUsuario().getId_Usuario());
-        this.setImagem_URL(object.getImagem_URL());
-    }
-
-    @Override
-    public ImagemServicoEntity toEntity() {
-        ImagemServicoEntity entity = new ImagemServicoEntity();
-
-        entity.setServico(new ServicoEntity(this.getId_Servico()));
-        entity.setImagem_URL(this.getImagem_URL());
-        entity.setId_Imagem_Servico(this.getId_Imagem_Servico());
-        entity.setUsuario(new UsuarioEntity(this.getId_Usuario()));
-
-        return entity;
     }
 }

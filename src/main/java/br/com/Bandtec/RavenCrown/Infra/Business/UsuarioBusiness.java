@@ -3,7 +3,6 @@ package br.com.Bandtec.RavenCrown.Infra.Business;
 import br.com.Bandtec.RavenCrown.Entity.EnderecoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosUsuariosDAL;
-import br.com.Bandtec.RavenCrown.Web.Model.CadastroModel;
 import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -68,4 +67,16 @@ public class UsuarioBusiness {
         }
     }
 
+    public boolean Update(UsuarioEntity entity) {
+
+        UsuarioEntity usuarioEncontrado = userdal.getByEmail(entity.getEmail_Usuario());
+        if(usuarioEncontrado != null){
+            userdal.save(entity);
+            System.out.println("Usuário cadastrado com sucesso!");
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

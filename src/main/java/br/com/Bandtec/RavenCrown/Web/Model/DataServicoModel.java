@@ -9,20 +9,97 @@ import java.sql.Date;
 
 public class DataServicoModel {
 
-    private int Id_data_agendado;
+    private int IdDataAgendamento;
 
-    private UsuarioEntity Prestador;
+    private int IdPrestador;
 
-    private UsuarioEntity Consumidor;
+    private int IdConsumidor;
 
-    private ServicoEntity Servico;
+    private int IdServico;
 
-    private ContratoEntity Contrato;
+    private int IdContrato;
 
-    private DemandaEntity Demanda;
+    private int IdDemanda;
 
-    private Date Dt_Agendamento;
+    private Date DtAgendamento;
 
-    private char Tipo_Reserva;
+    private char TipoReserva;
 
+    public DataServicoModel() {
+    }
+
+    public DataServicoModel(int idDataAgendamento, int idPrestador, int idConsumidor, int idServico, int idContrato, int idDemanda, Date dtAgendamento, char tipoReserva) {
+        IdDataAgendamento = idDataAgendamento;
+        IdPrestador = idPrestador;
+        IdConsumidor = idConsumidor;
+        IdServico = idServico;
+        IdContrato = idContrato;
+        IdDemanda = idDemanda;
+        DtAgendamento = dtAgendamento;
+        TipoReserva = tipoReserva;
+    }
+
+    public int getIdDataAgendamento() {
+        return IdDataAgendamento;
+    }
+
+    public void setIdDataAgendamento(int idDataAgendamento) {
+        IdDataAgendamento = idDataAgendamento;
+    }
+
+    public int getIdPrestador() {
+        return IdPrestador;
+    }
+
+    public void setIdPrestador(int idPrestador) {
+        IdPrestador = idPrestador;
+    }
+
+    public int getIdConsumidor() {
+        return IdConsumidor;
+    }
+
+    public void setIdConsumidor(int idConsumidor) {
+        IdConsumidor = idConsumidor;
+    }
+
+    public int getIdServico() {
+        return IdServico;
+    }
+
+    public void setIdServico(int idServico) {
+        IdServico = idServico;
+    }
+
+    public int getIdContrato() {
+        return IdContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        IdContrato = idContrato;
+    }
+
+    public int getIdDemanda() {
+        return IdDemanda;
+    }
+
+    public void setIdDemanda(int idDemanda) {
+        IdDemanda = idDemanda;
+    }
+
+    public Date getDtAgendamento() {
+        return DtAgendamento;
+    }
+
+    public void setDtAgendamento(Date dtAgendamento) {
+        DtAgendamento = dtAgendamento;
+    }
+
+    public char getTipoReserva() {
+        return TipoReserva;
+    }
+
+    public void setTipoReserva(char tipoReserva) {
+        TipoReserva = tipoReserva;
+    }
 }

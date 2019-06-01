@@ -1,19 +1,19 @@
 package br.com.Bandtec.RavenCrown.Infra.DAL;
 
-import br.com.Bandtec.RavenCrown.Infra.Interfaces.ImageRepositoryAdress;
+import br.com.Bandtec.RavenCrown.Infra.Interfaces.RepositoriesAdress;
 import br.com.Bandtec.RavenCrown.Infra.Interfaces.RavenCrownSaveImage;
 import br.com.Bandtec.RavenCrown.Web.Model.ImagemServicoModel;
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.Base64;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> {
 
     private final String local;
 
     public ImageServiceDAO(){
-        this.local = ImageRepositoryAdress.SERVICE.getLocais();
+        this.local = RepositoriesAdress.SERVICE_IMAGE.getLocais();
     }
 
     @Override
@@ -30,13 +30,27 @@ public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> 
         catch (Exception e)
         {
             imageURL = null;
+            System.out.println("Erro on save image: "+e.toString());
         }
 
         return imageURL;
     }
 
     @Override
-    public String getImage(String ImageURL) {
-        return null;
+    public byte[] getImage(String ImageURL) {
+
+        BufferedImage bImage = null;
+        try {
+            bImage = ImageIO.read(new File(ImageURL));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(bImage, "png", bos );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bos.toByteArray();
     }
 }

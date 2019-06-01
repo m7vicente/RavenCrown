@@ -13,4 +13,6 @@ public interface TodosServicosDAL extends JpaRepository<ServicoEntity, Integer> 
     @Query("from ServicoEntity where id_prestador = ?1")
     List<ServicoEntity> GetAllServicesByUserId(int id);
 
+    @Query("from ServicoEntity where id_categoria = ?1")
+    List<ServicoEntity> getByCategoryId(int id);
 }

@@ -29,7 +29,10 @@ public class ImagemUsuarioEntity {
 
     public UsuarioEntity getUsuario() {return Usuario; }
 
-    public void setUsuario(UsuarioEntity Usuario) {this.Usuario = Usuario; }
+    public void setUsuario(UsuarioEntity Usuario) {
+        this.Usuario = Usuario;
+        Usuario.setImagem(this);
+    }
 
     public int getImagem_Id() { return Imagem_Id; }
 
