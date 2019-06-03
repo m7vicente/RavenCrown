@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Infra.Business;
 import br.com.Bandtec.RavenCrown.Entity.ContratoEntity;
 import br.com.Bandtec.RavenCrown.Entity.DataServicoEntity;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosContratosDAL;
+import br.com.Bandtec.RavenCrown.Infra.DAL.emailDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,13 @@ public class ContratoBussiness {
 
     @Autowired
     private TodosContratosDAL contratosDAL;
+    private emailDAO emailDAO;
 
     public ContratoEntity CreateContract(ContratoEntity contrato){
+        ContratoEntity prestador = emailDAO.getID(contrato.getPrestador().getId_Usuario();
+        ContratoEntity consumidor = emailDAO.getID(contrato.getPrestador().getId_Usuario();
+
+
         return contratosDAL.save(contrato);
     }
 
