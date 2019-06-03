@@ -8,6 +8,7 @@ import br.com.Bandtec.RavenCrown.Web.Model.UsuarioModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -33,10 +34,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/Usuario")
-    public UsuarioModel LoginController (@RequestParam("id") int id) {
+    public ResponseEntity<UsuarioModel> LoginController (@RequestParam("id") int id) {
         UsuarioModel model = mapper.map(userBusiness.getUser(id),UsuarioModel.class);
 
-        return model;
+        return ResponseEntity.ok(model);
     }
     //http://localhost:8080/Usuario?id=11
 }
