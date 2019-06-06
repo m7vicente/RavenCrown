@@ -2,10 +2,22 @@ package br.com.Bandtec.RavenCrown.Infra.Business;
 
 import br.com.Bandtec.RavenCrown.Entity.ContratoEntity;
 import br.com.Bandtec.RavenCrown.Entity.DataServicoEntity;
+import br.com.Bandtec.RavenCrown.Infra.DAL.EmailServiceDAO;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosContratosDAL;
-import br.com.Bandtec.RavenCrown.Infra.DAL.emailDAO;
+import br.com.Bandtec.RavenCrown.Infra.Interfaces.RepositoriesAdress;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.lang.reflect.Modifier;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.io.OutputStream;
+
 
 import java.sql.Date;
 
@@ -14,14 +26,17 @@ public class ContratoBussiness {
 
     @Autowired
     private TodosContratosDAL contratosDAL;
-    private emailDAO emailDAO;
+
+    @Autowired
+    EmailServiceDAO emailDAO;
 
     public ContratoEntity CreateContract(ContratoEntity contrato){
-        ContratoEntity prestador = emailDAO.getID(contrato.getPrestador().getId_Usuario();
-        ContratoEntity consumidor = emailDAO.getID(contrato.getPrestador().getId_Usuario();
 
+        contrato = contratosDAL.save(contrato);
 
-        return contratosDAL.save(contrato);
+        emailDAO.sandConfirmation(contrato.getPrestador().getId_Usuario(),contrato.getConsumidor().getId_Usuario());
+
+        return contrato;
     }
 
     public boolean AprovarConsumidor(int idContrato,boolean approvation){

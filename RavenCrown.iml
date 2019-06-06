@@ -110,5 +110,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.0.BUILD-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.2.0.BUILD-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.5" level="project" />
   </component>
 </module>
