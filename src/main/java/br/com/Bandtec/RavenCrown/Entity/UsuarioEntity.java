@@ -2,6 +2,7 @@ package br.com.Bandtec.RavenCrown.Entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Entity
@@ -40,7 +41,7 @@ public class UsuarioEntity {
 
     private String Estado_Civil;
 
-    private Date Data_Nascimento;
+    private LocalDate Data_Nascimento;
 
 
     @OneToMany(mappedBy="Prestador")
@@ -67,7 +68,7 @@ public class UsuarioEntity {
         this.setId_Usuario(id_Usuario);
     }
 
-    public UsuarioEntity(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, Date data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
+    public UsuarioEntity(int id_Usuario, EnderecoEntity endereco, ImagemUsuarioEntity imagem, String nome_Usuario, String email_Usuario, String CPF_CNPJ, String RG, String telefone_usuario, String senha, boolean prestador, char sexo, String estado_Civil, LocalDate data_Nascimento, Collection<DataServicoEntity> datasPrestar, Collection<DataServicoEntity> datasConsumir, Collection<ContratoEntity> servicosPrestar, Collection<ContratoEntity> servicosConsumir) {
         Id_Usuario = id_Usuario;
         Endereco = endereco;
         Imagem = imagem;
@@ -87,11 +88,11 @@ public class UsuarioEntity {
         this.servicosConsumir = servicosConsumir;
     }
 
-    public Date getData_Nascimento() {
+    public LocalDate getData_Nascimento() {
         return Data_Nascimento;
     }
 
-    public void setData_Nascimento(Date data_Nascimento) {
+    public void setData_Nascimento(LocalDate data_Nascimento) {
         Data_Nascimento = data_Nascimento;
     }
 
@@ -213,6 +214,7 @@ public class UsuarioEntity {
 
     public void setEndereco(EnderecoEntity endereco) {
         Endereco = endereco;
+        Endereco.setUsuario(this);
     }
 
     public ImagemUsuarioEntity getImagem() {

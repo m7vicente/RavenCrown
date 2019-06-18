@@ -66,6 +66,7 @@ public class ContratoEntity {
 
     public void setServico(ServicoEntity servico) {
         Servico = servico;
+        this.setPrestador(this.getServico().getPrestador());
     }
 
     public int getId_Contrato() { return Id_Contrato; }

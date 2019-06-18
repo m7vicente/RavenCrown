@@ -2,11 +2,14 @@ package br.com.Bandtec.RavenCrown.Infra.Business;
 
 import br.com.Bandtec.RavenCrown.Entity.ContratoEntity;
 import br.com.Bandtec.RavenCrown.Entity.DataServicoEntity;
+import br.com.Bandtec.RavenCrown.Infra.DAL.EmailServiceDAO;
 import br.com.Bandtec.RavenCrown.Infra.DAL.TodosContratosDAL;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -15,8 +18,15 @@ public class ContratoBussiness {
     @Autowired
     private TodosContratosDAL contratosDAL;
 
+    @Autowired
+    private EmailServiceDAO emailDAO;
+
     public ContratoEntity CreateContract(ContratoEntity contrato){
-        return contratosDAL.save(contrato);
+        contrato = contratosDAL.save(contrato);
+
+        emailDAO.sandConfirmation(contrato.getPrestador().getId_Usuario(),contrato.getConsumidor().getId_Usuario());
+
+        return contrato;
     }
 
     public boolean AprovarConsumidor(int idContrato,boolean approvation){
@@ -24,7 +34,7 @@ public class ContratoBussiness {
 
         ContratoEntity contrato = contratosDAL.getOne(idContrato);
 
-        Date today = new Date(System.currentTimeMillis());
+        LocalDateTime today = LocalDateTime.now();
 
         for(DataServicoEntity x : contrato.getDatas()){
             if (x.getDt_Agendamento() ==  today){
@@ -43,7 +53,7 @@ public class ContratoBussiness {
 
         ContratoEntity contrato = contratosDAL.getOne(idContrato);
 
-        Date today = new Date(System.currentTimeMillis());
+        LocalDateTime today = LocalDateTime.now();
 
         for(DataServicoEntity x : contrato.getDatas()){
             if (x.getDt_Agendamento() ==  today){

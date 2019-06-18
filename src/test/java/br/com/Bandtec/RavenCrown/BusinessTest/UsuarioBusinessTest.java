@@ -23,6 +23,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.junit.Assert.assertTrue;
 
@@ -49,6 +51,7 @@ public class UsuarioBusinessTest {
         userModel.setRG("XX.XXX.XX-X");
         userModel.setCPF_CNPJ("123.456.789-09");
         userModel.setSenha("string");
+        userModel.setData_Nascimento(LocalDate.now());
         userModel = business.Cadastro(userModel);
 
     }
@@ -58,6 +61,8 @@ public class UsuarioBusinessTest {
         userEntity = new LoginModel();
 
         userEntity.setEmail("teste@revencrown");
+
+
         userEntity.setSenha("string");
 
         UsuarioEntity userFromDB =  business.Login(userEntity.getEmail(),userEntity.getSenha());

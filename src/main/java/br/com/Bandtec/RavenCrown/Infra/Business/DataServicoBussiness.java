@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -25,14 +26,14 @@ public class DataServicoBussiness {
         ServicoEntity servico = servicoBussiness.getById(data.getIdServico());
 
         for (DataServicoEntity x : servico.getDatas()) {
-            if (x.getDt_Agendamento() != data.getDtAgendamento()) {
-                if (x.getDt_Agendamento().getDay() == data.getDtAgendamento().getDay()) {
-                    if ((x.getDt_Agendamento().getTime() + servico.getTempo_Execucao().getTime())
-                            < data.getDtAgendamento().getTime()) {
+            if (x.getDt_Agendamento() != (data.getDtAgendamento())) {
+                if (x.getDt_Agendamento().getDayOfMonth() == data.getDtAgendamento().getDayOfMonth()) {
+
+                    if(data.getDtAgendamento().getHour() > x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHours() || x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHours() <  data.getDtAgendamento().getHour())
+
                         available = false;
                         break;
                     }
-                }
             }else {
                 available = false;
             }

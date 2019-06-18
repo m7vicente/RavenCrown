@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,6 @@ public class ContratoController {
                 data.setServico(contract.getServico());
                 datas.add(data);
             }
-
             contract.setDatas(datas);
             contract.setValor_Final(contrato.getValor_Final());
             contract.setEndereco(contrato.getEndereco() != null ? new ModelMapper().map(contrato.getEndereco(), EnderecoEntity.class) : null);

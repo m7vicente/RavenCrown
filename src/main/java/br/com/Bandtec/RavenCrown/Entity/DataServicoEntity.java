@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="TBD_Datas_Servico_agendado")
@@ -33,7 +34,7 @@ public class DataServicoEntity {
     @JoinColumn(name = "id_demanda", referencedColumnName = "id_demanda")
     private DemandaEntity Demanda;
 
-    private Date Dt_Agendamento;
+    private LocalDateTime Dt_Agendamento;
 
     private char Tipo_Reserva;
 
@@ -88,11 +89,11 @@ public class DataServicoEntity {
         Demanda = demanda;
     }
 
-    public Date getDt_Agendamento() {
+    public LocalDateTime getDt_Agendamento() {
         return Dt_Agendamento;
     }
 
-    public void setDt_Agendamento(Date dt_Agendamento) {
+    public void setDt_Agendamento(LocalDateTime dt_Agendamento) {
         Dt_Agendamento = dt_Agendamento;
     }
 

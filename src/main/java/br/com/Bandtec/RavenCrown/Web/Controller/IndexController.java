@@ -12,11 +12,7 @@ public class IndexController {
     public final static String INDEX_URL = "index.html";
 
     @GetMapping("/index")
-    public String IndexController(@ModelAttribute UsuarioModel model){
-        return INDEX_URL;
-    }
-
-    public String LoginController(Model model){
+    public String IndexController(){
         return INDEX_URL;
     }
 

@@ -1,6 +1,7 @@
 package br.com.Bandtec.RavenCrown.Web.Controller;
 
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
+import br.com.Bandtec.RavenCrown.Infra.Business.Encryption;
 import br.com.Bandtec.RavenCrown.Infra.Business.ImagemUsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Infra.Business.UsuarioBusiness;
 import br.com.Bandtec.RavenCrown.Web.Model.LoginModel;
@@ -49,7 +50,11 @@ public class LoginController {
 
         try{
         ModelMapper mapper = new ModelMapper();
-        UsuarioModel usr = mapper.map(userBusiness.Login(user.getEmail(),user.getSenha()),UsuarioModel.class);
+        user.setSenha(user.getSenha());
+
+        UsuarioEntity usuario = userBusiness.Login(user.getEmail(),user.getSenha());
+
+        UsuarioModel usr = mapper.map(usuario,UsuarioModel.class);
 
         if(usr == null){
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);

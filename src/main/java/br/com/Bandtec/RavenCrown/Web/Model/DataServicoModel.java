@@ -6,6 +6,7 @@ import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
 import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class DataServicoModel {
 
@@ -21,23 +22,9 @@ public class DataServicoModel {
 
     private int IdDemanda;
 
-    private Date DtAgendamento;
+    private LocalDateTime DtAgendamento;
 
     private char TipoReserva;
-
-    public DataServicoModel() {
-    }
-
-    public DataServicoModel(int idDataAgendamento, int idPrestador, int idConsumidor, int idServico, int idContrato, int idDemanda, Date dtAgendamento, char tipoReserva) {
-        IdDataAgendamento = idDataAgendamento;
-        IdPrestador = idPrestador;
-        IdConsumidor = idConsumidor;
-        IdServico = idServico;
-        IdContrato = idContrato;
-        IdDemanda = idDemanda;
-        DtAgendamento = dtAgendamento;
-        TipoReserva = tipoReserva;
-    }
 
     public int getIdDataAgendamento() {
         return IdDataAgendamento;
@@ -87,11 +74,11 @@ public class DataServicoModel {
         IdDemanda = idDemanda;
     }
 
-    public Date getDtAgendamento() {
+    public LocalDateTime getDtAgendamento() {
         return DtAgendamento;
     }
 
-    public void setDtAgendamento(Date dtAgendamento) {
+    public void setDtAgendamento(LocalDateTime dtAgendamento) {
         DtAgendamento = dtAgendamento;
     }
 

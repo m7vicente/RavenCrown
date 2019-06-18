@@ -12,8 +12,11 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @Transactional
 @SpringBootTest
@@ -30,9 +33,9 @@ public class TodosEnderecosDALTest {
 
     @Test
     public void obterEndereco(){
-        endereco = todosEnderecosDAL.getOne(11);
+        List<EnderecoEntity> endereco  = todosEnderecosDAL.findAll();
 
-        assertTrue( endereco.getId_Endereco() == 11 );
+        assertFalse(endereco.isEmpty());
     }
 
     @Test

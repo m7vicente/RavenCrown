@@ -80,6 +80,7 @@ public class ServicoController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/Servico")
     public ResponseEntity<ServicoModel> insertServico(@RequestBody ServicoModel model){
 
@@ -91,10 +92,13 @@ public class ServicoController {
 
         servicoEntity = servicoBussines.insertService(servicoEntity);
 
-        if(!model.getImagem().isEmpty()){
-            for(ImagemServicoModel x : model.getImagem()){
-                imagemBussines.SaveImage(x,servicoEntity);
-            };
+        if(model.getImagem() != null) {
+            if (!model.getImagem().isEmpty()) {
+                for (ImagemServicoModel x : model.getImagem()) {
+                    imagemBussines.SaveImage(x, servicoEntity);
+                }
+                ;
+            }
         }
 
         model = modelMapper.map(servicoEntity, ServicoModel.class);

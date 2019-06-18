@@ -22,12 +22,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-@Commit
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -74,7 +75,6 @@ public class ContratoBusinessTest {
         contrato.setServico(servicoSalvo);
         contrato.setConsumidor(userBusiness.getUser(10));
         contrato.setEndereco(new EnderecoEntity(0,"Rua do teste","00000-000",null,"100",null,"Todos os Teste","Sampa","SP","Brazil",contrato.getConsumidor()));
-        contrato.setPrestador(servicoSalvo.getPrestador());
         contrato.setValor_Final(servicoSalvo.getPreco_Servico());
 
         List<DataServicoEntity> datas = new ArrayList<>();
@@ -86,7 +86,7 @@ public class ContratoBusinessTest {
         dia.setTipo_Reserva('T');
         dia.setServico(servicoSalvo);
 
-        dia.setDt_Agendamento(new Date(new java.util.Date(2030,01,01).getTime()));
+        dia.setDt_Agendamento(LocalDateTime.parse("2025-01-01T00:30:00"));
         dia.setContrato(contrato);
         datas.add(dia);
 

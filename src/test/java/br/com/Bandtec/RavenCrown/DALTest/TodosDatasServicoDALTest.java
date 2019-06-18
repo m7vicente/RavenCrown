@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -48,10 +49,11 @@ public class TodosDatasServicoDALTest {
         dataServico = new DataServicoEntity();
 
         java.util.Date DATA = new java.util.Date();
-        Date data = new Date(DATA.getTime());
 
-        dataServico.setDt_Agendamento(data);
-        dataServico.setPrestador(usuario);
+        dataServico.setServico(this.servico);
+        dataServico.setDt_Agendamento(LocalDateTime.now());
+        dataServico.setPrestador(servico.getPrestador());
+        dataServico.setConsumidor(this.usuario);
         dataServico.setTipo_Reserva('T');
 
         datasServicoDAL.save(dataServico);
@@ -63,6 +65,6 @@ public class TodosDatasServicoDALTest {
 
     @Test
     public void verirficarDatasEmServico(){
-        assertFalse((servicosDAL.getOne(1).getDatas().isEmpty()));
+        assertFalse(servicosDAL.getOne(1).getDatas().isEmpty());
     }
 }

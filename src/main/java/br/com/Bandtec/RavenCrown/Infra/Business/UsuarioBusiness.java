@@ -20,7 +20,7 @@ public class UsuarioBusiness {
 
         UsuarioEntity entity = new UsuarioEntity();
         entity.setEmail_Usuario(email);
-        entity.setSenha(senha);
+        entity.setSenha(new Encryption().Encript(senha));
 
         List<UsuarioEntity> users = userdal.findAll();
 
@@ -59,6 +59,7 @@ public class UsuarioBusiness {
         UsuarioEntity usuarioEncontrado = userdal.getByEmail(user.getEmail_Usuario());
 
         if(usuarioEncontrado == null){
+            user.setSenha(new Encryption().Encript(user.getSenha()));
             userdal.save(user);
             System.out.println("Usuário cadastrado com sucesso!");
             return user;
@@ -71,6 +72,7 @@ public class UsuarioBusiness {
 
         UsuarioEntity usuarioEncontrado = userdal.getByEmail(entity.getEmail_Usuario());
         if(usuarioEncontrado != null){
+            entity.setSenha(new Encryption().Encript(entity.getSenha()));
             userdal.save(entity);
             System.out.println("Usuário cadastrado com sucesso!");
             return true;

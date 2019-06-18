@@ -34,7 +34,6 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-@Commit
 @Transactional
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -78,55 +77,55 @@ public class ServicoBussinesTest {
         assertTrue(servicoSalvo != null);
     }
 
-    @Test
-    public void persistirServicoCOMImagem(){
-        model = new ServicoEntity();
-
-        model.setDescricao_Servico("Criação de aplicações que monitoram o sistema operacional");
-        model.setPrestador(userDAL.getOne(11));
-        model.setNome_Servico("Full bitfrosts");
-        model.setLocalizacao_Fixa(false);
-        model.setPreco_Servico(100.33);
-        model.setCategoria(catDAL.getOne(1));
-
-        Time timer = new Time(Time.valueOf("00:10:00").getTime());
-        java.sql.Date date = new java.sql.Date(timer.getTime());
-
-        model.setTempo_Execucao(date);
-
-        ServicoEntity servicoSalvo = serviceBusiness.insertService((mapper.map(model,ServicoEntity.class)));
-
-        List<ImagemServicoEntity> imagens = new ArrayList<>();
-
-        BufferedImage bImage = null;
-        try {
-            bImage = ImageIO.read(new File("C:/Projetos/Test.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(bImage, "png", bos );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        ImagemServicoModel imagem = new ImagemServicoModel();
-        imagem.setImage(bos.toByteArray());
-        imagem.setId_Usuario(servicoSalvo.getPrestador().getId_Usuario());
-        imagem.setId_Servico(servicoSalvo.getId_Servico());
-
-        imagemServicoBussines.SaveImage(imagem,servicoSalvo);
-
-        ImagemServicoEntity serviceImage = new ImagemServicoEntity();
-        serviceImage.setServico(servicoSalvo);
-        serviceImage.setUsuario(servicoSalvo.getPrestador());
-        serviceImage.setImagem_URL(imagem.getImagem_URL());
-        imagens.add(serviceImage);
-        servicoSalvo.setImagens(imagens);
-
-        assertTrue(servicoSalvo != null && !servicoSalvo.getImagens().isEmpty());
-    }
+//    @Test
+//    public void persistirServicoCOMImagem(){
+//        model = new ServicoEntity();
+//
+//        model.setDescricao_Servico("Criação de aplicações que monitoram o sistema operacional");
+//        model.setPrestador(userDAL.getOne(11));
+//        model.setNome_Servico("Full bitfrosts");
+//        model.setLocalizacao_Fixa(false);
+//        model.setPreco_Servico(100.33);
+//        model.setCategoria(catDAL.getOne(1));
+//
+//        Time timer = new Time(Time.valueOf("00:10:00").getTime());
+//        java.sql.Date date = new java.sql.Date(timer.getTime());
+//
+//        model.setTempo_Execucao(date);
+//
+//        ServicoEntity servicoSalvo = serviceBusiness.insertService((mapper.map(model,ServicoEntity.class)));
+//
+//        List<ImagemServicoEntity> imagens = new ArrayList<>();
+//
+//        BufferedImage bImage = null;
+//        try {
+//            bImage = ImageIO.read(new File("C:/Projetos/Test.png"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        try {
+//            ImageIO.write(bImage, "png", bos );
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        ImagemServicoModel imagem = new ImagemServicoModel();
+//        imagem.setImage(bos.toByteArray());
+//        imagem.setId_Usuario(servicoSalvo.getPrestador().getId_Usuario());
+//        imagem.setId_Servico(servicoSalvo.getId_Servico());
+//
+//        imagemServicoBussines.SaveImage(imagem,servicoSalvo);
+//
+//        ImagemServicoEntity serviceImage = new ImagemServicoEntity();
+//        serviceImage.setServico(servicoSalvo);
+//        serviceImage.setUsuario(servicoSalvo.getPrestador());
+//        serviceImage.setImagem_URL(imagem.getImagem_URL());
+//        imagens.add(serviceImage);
+//        servicoSalvo.setImagens(imagens);
+//
+//        assertTrue(servicoSalvo != null && !servicoSalvo.getImagens().isEmpty());
+//    }
 
 
 

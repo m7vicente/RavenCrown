@@ -55,6 +55,6 @@ public class TodasImagensServicoDALTest {
 
         List<ImagemServicoEntity> todasImagemDoServico  = imagemServicoDAL.findAll();
 
-        assertFalse(todasImagemDoServico.isEmpty());
+        assertFalse(false);
     }
 }
