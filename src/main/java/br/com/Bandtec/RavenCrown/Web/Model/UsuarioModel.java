@@ -3,6 +3,7 @@ package br.com.Bandtec.RavenCrown.Web.Model;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Component
 public class UsuarioModel {
@@ -31,25 +32,25 @@ public class UsuarioModel {
 
     public String estadoCivil;
 
-    public Date data_Nascimento;
+    public LocalDate data_Nascimento;
 
-    public UsuarioModel(String nome, String email, String senha, int idUsuario, EnderecoModel endereco, ImagemUsuarioModel imagem, String cpfcnpj, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, Date data_Nascimento) {
+    public UsuarioModel() {
+    }
+
+    public UsuarioModel(String nome, String email, String senha, int id_Usuario, EnderecoModel endereco, ImagemUsuarioModel imagem, String cpfCnpj, String RG, String telefone, boolean prestador, char sexo, String estadoCivil, LocalDate data_Nascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        Id_Usuario = idUsuario;
+        Id_Usuario = id_Usuario;
         this.endereco = endereco;
         this.imagem = imagem;
-        this.cpfCnpj = cpfcnpj;
+        this.cpfCnpj = cpfCnpj;
         this.RG = RG;
         this.telefone = telefone;
         Prestador = prestador;
         this.sexo = sexo;
         this.estadoCivil = estadoCivil;
         this.data_Nascimento = data_Nascimento;
-    }
-
-    public UsuarioModel() {
     }
 
     public String getNome() {
@@ -85,7 +86,7 @@ public class UsuarioModel {
     }
 
     public EnderecoModel getEndereco() {
-        return this.endereco;
+        return endereco;
     }
 
     public void setEndereco(EnderecoModel endereco) {
@@ -148,12 +149,11 @@ public class UsuarioModel {
         this.estadoCivil = estadoCivil;
     }
 
-    public Date getData_Nascimento() {
+    public LocalDate getData_Nascimento() {
         return data_Nascimento;
     }
 
-    public void setData_Nascimento(Date data_Nascimento) {
+    public void setData_Nascimento(LocalDate data_Nascimento) {
         this.data_Nascimento = data_Nascimento;
     }
-
 }

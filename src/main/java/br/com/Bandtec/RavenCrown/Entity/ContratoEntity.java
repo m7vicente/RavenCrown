@@ -112,4 +112,6 @@ public class ContratoEntity {
     public void setDatas(List<DataServicoEntity> datas) {
         Datas = datas;
     }
+
+
 }

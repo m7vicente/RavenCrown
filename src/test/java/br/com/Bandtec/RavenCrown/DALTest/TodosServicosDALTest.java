@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -40,7 +41,7 @@ public class TodosServicosDALTest {
         servico.setNome_Servico("Pias e Tanques Conserto");
         servico.setPreco_Servico(33.59);
         servico.setPrestador(usuariosDAL.getOne(10));
-        servico.setTempo_Execucao(new Date(Time.valueOf("00:10:00").getTime()));
+        servico.setTempo_Execucao(LocalDateTime.now());
 
         servicosDAL.save(servico);
 

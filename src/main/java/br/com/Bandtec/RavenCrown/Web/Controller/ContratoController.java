@@ -155,6 +155,32 @@ public class ContratoController {
             System.out.println("Error: " + ex.toString());
             return new ResponseEntity(null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
+
+    @GetMapping("/Prestador/Contratos")
+    public ResponseEntity<List<VisualizacaoContratoModel>> ObterTodosContratosdePrestador(@RequestParam("id") int id) {
+        try {
+            List<VisualizacaoContratoModel> lista = new ArrayList<>();
+
+            for (ContratoEntity contratoEntity : contratoBussiness.ObterTodosContratosPorPrestador(id)) {
+                VisualizacaoContratoModel model = new VisualizacaoContratoModel();
+
+                model = mapper.map(contratoEntity, VisualizacaoContratoModel.class);
+
+                List<DataServicoModel> datas = new ArrayList<>();
+                contratoEntity.getDatas().forEach(x -> {
+                    datas.add(mapper.map(x, DataServicoModel.class));
+                });
+                model.setDatas(datas);
+                lista.add(model);
+            }
+
+            return ResponseEntity.ok(lista);
+
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+            return new ResponseEntity(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

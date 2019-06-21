@@ -70,7 +70,7 @@ public class ServicoBussinesTest {
         Time timer = new Time(Time.valueOf("10:00:00").getTime());
         java.sql.Date date = new java.sql.Date(timer.getTime());
 
-        model.setTempo_Execucao(date);
+        model.setTempo_Execucao(LocalDateTime.now());
 
         ServicoEntity servicoSalvo = serviceBusiness.insertService(model);
 

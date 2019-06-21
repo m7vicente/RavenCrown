@@ -10,6 +10,8 @@ public class VisualizacaoContratoModel extends ContratoModel{
 
     private List<DataServicoModel> datas;
 
+    private UsuarioModel  consumidor;
+
 
     public UsuarioModel getPrestador() {
         return prestador;
@@ -35,5 +37,13 @@ public class VisualizacaoContratoModel extends ContratoModel{
     @Override
     public void setDatas(List<DataServicoModel> datas) {
         this.datas = datas;
+    }
+
+    public UsuarioModel getConsumidor() {
+        return consumidor;
+    }
+
+    public void setConsumidor(UsuarioModel consumidor) {
+        this.consumidor = consumidor;
     }
 }

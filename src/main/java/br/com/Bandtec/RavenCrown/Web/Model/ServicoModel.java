@@ -4,10 +4,12 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
-public class ServicoModel{
+public class ServicoModel {
 
     private int idServico;
 
@@ -23,7 +25,7 @@ public class ServicoModel{
 
     private String descricaoServico;
 
-    private Date tempoExecucao;
+    private LocalDateTime tempoExecucao;
 
     private Double precoServico;
 
@@ -32,7 +34,7 @@ public class ServicoModel{
     public ServicoModel() {
     }
 
-    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> imagem, String nomeServico, String descricaoServico, Date tempoExecucao, Double precoServico, boolean localizacaoFixa) {
+    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> imagem, String nomeServico, String descricaoServico, LocalDateTime tempoExecucao, Double precoServico, boolean localizacaoFixa) {
         this.idServico = idServico;
         this.idUsuario = idUsuario;
         Endereco = endereco;
@@ -43,14 +45,6 @@ public class ServicoModel{
         this.tempoExecucao = tempoExecucao;
         this.precoServico = precoServico;
         this.localizacaoFixa = localizacaoFixa;
-    }
-
-    public EnderecoModel getEndereco() {
-        return Endereco;
-    }
-
-    public void setEndereco(EnderecoModel endereco) {
-        Endereco = endereco;
     }
 
     public int getIdServico() {
@@ -67,6 +61,14 @@ public class ServicoModel{
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public EnderecoModel getEndereco() {
+        return Endereco;
+    }
+
+    public void setEndereco(EnderecoModel endereco) {
+        Endereco = endereco;
     }
 
     public int getIdCategoria() {
@@ -101,11 +103,11 @@ public class ServicoModel{
         this.descricaoServico = descricaoServico;
     }
 
-    public Date getTempoExecucao() {
+    public LocalDateTime getTempoExecucao() {
         return tempoExecucao;
     }
 
-    public void setTempoExecucao(Date tempoExecucao) {
+    public void setTempoExecucao(LocalDateTime tempoExecucao) {
         this.tempoExecucao = tempoExecucao;
     }
 
@@ -124,5 +126,4 @@ public class ServicoModel{
     public void setLocalizacaoFixa(boolean localizacaoFixa) {
         this.localizacaoFixa = localizacaoFixa;
     }
-
 }

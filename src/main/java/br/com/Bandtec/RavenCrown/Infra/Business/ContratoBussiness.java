@@ -71,4 +71,8 @@ public class ContratoBussiness {
     public List<ContratoEntity> ObterTodosContratosPorConsumidor(int id) {
         return contratosDAL.GetByConsumer(id);
     }
+
+    public List<ContratoEntity> ObterTodosContratosPorPrestador(int id) {
+        return contratosDAL.GetByProvider(id);
+    }
 }

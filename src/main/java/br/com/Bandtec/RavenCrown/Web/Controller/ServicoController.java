@@ -60,19 +60,21 @@ public class ServicoController {
     }
 
     @GetMapping("/Servicos/Categoria")
-    public ResponseEntity<List<ServicoModel>> getServicoByCategory(@RequestParam("categoria") int id){
+    public ResponseEntity<List<ServicoModel>> getServicoByCategory(@RequestParam("categoria") int id,@RequestParam("login") int prestador){
         try {
             List<ServicoModel> services = new ArrayList<>();
             servicoBussines.GetByCategory(id).forEach(x -> {
-                ServicoModel servico = modelMapper.map(x, ServicoModel.class);
-                servico.setIdUsuario(x.getPrestador().getId_Usuario());
-                try {
-                    servico.setImagem(imagemBussines.getServiceImages(x.getId_Servico()));
-                }catch (Exception ex){
-                    System.out.println("Error: "+ex.toString());
-                    servico.setImagem(null);
+                if(x.getPrestador().getId_Usuario() != prestador) {
+                    ServicoModel servico = modelMapper.map(x, ServicoModel.class);
+                    servico.setIdUsuario(x.getPrestador().getId_Usuario());
+                    try {
+                        servico.setImagem(imagemBussines.getServiceImages(x.getId_Servico()));
+                    } catch (Exception ex) {
+                        System.out.println("Error: " + ex.toString());
+                        servico.setImagem(null);
+                    }
+                    services.add(servico);
                 }
-                services.add(servico);
             });
             return ResponseEntity.ok(services);
         }catch (Exception x){

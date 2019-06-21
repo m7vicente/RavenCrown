@@ -29,7 +29,7 @@ public class DataServicoBussiness {
             if (x.getDt_Agendamento() != (data.getDtAgendamento())) {
                 if (x.getDt_Agendamento().getDayOfMonth() == data.getDtAgendamento().getDayOfMonth()) {
 
-                    if(data.getDtAgendamento().getHour() > x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHours() || x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHours() <  data.getDtAgendamento().getHour())
+                    if(data.getDtAgendamento().getHour() > x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHour() || x.getDt_Agendamento().getHour()+servico.getTempo_Execucao().getHour() <  data.getDtAgendamento().getHour())
 
                         available = false;
                         break;
