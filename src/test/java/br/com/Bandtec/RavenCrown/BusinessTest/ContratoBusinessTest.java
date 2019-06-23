@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ public class ContratoBusinessTest {
         Time timer = new Time(Time.valueOf("10:00:00").getTime());
         java.sql.Date date = new java.sql.Date(timer.getTime());
 
-        model.setTempo_Execucao(LocalDateTime.now());
+        model.setTempo_Execucao(LocalTime.now());
         servicoSalvo = servicoBusiness.insertService(model);
     }
 

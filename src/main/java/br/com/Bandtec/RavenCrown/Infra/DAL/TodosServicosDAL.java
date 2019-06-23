@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface TodosServicosDAL extends JpaRepository<ServicoEntity, Integer> {
 
-    @Query("from ServicoEntity where id_prestador = ?1")
+    @Query("from ServicoEntity where ID_USUARIO_PRESTADOR = ?1")
     List<ServicoEntity> GetAllServicesByUserId(int id);
 
     @Query("from ServicoEntity where id_categoria = ?1")

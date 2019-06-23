@@ -26,9 +26,9 @@ public class ImagemServicoBussines {
         entities.forEach(X -> {
             ImagemServicoModel imagemModel = new ImagemServicoModel();
             imagemModel.setImage(imageDAO.getImage(X.getImagem_URL()));
-            imagemModel.setImagem_URL(X.getImagem_URL());
-            imagemModel.setId_Servico(X.getId_Imagem_Servico());
-            imagemModel.setId_Usuario(X.getUsuario().getId_Usuario());
+            imagemModel.setImagemURL(X.getImagem_URL());
+            imagemModel.setIdServico(X.getId_Imagem_Servico());
+            imagemModel.setIdUsuario(X.getUsuario().getId_Usuario());
             images.add(imagemModel);
         });
 
@@ -38,10 +38,10 @@ public class ImagemServicoBussines {
     public void SaveImage (ImagemServicoModel imagem, ServicoEntity entity){
         ImageServiceDAO imageDAO = new ImageServiceDAO();
 
-        imagem.setImagem_URL(imageDAO.saveImage(imagem));
+        imagem.setImagemURL(imageDAO.saveImage(imagem));
 
         ImagemServicoEntity imagemServicoEntity = new ImagemServicoEntity(
-                0,entity,entity.getPrestador(),imagem.getImagem_URL()
+                0,entity,entity.getPrestador(),imagem.getImagemURL()
         );
 
         repositorio.save(imagemServicoEntity);

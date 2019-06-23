@@ -27,6 +27,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -70,7 +71,7 @@ public class ServicoBussinesTest {
         Time timer = new Time(Time.valueOf("10:00:00").getTime());
         java.sql.Date date = new java.sql.Date(timer.getTime());
 
-        model.setTempo_Execucao(LocalDateTime.now());
+        model.setTempo_Execucao(LocalTime.now());
 
         ServicoEntity servicoSalvo = serviceBusiness.insertService(model);
 

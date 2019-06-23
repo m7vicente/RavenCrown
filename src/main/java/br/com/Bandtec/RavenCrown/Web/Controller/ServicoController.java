@@ -122,4 +122,22 @@ public class ServicoController {
         servicoBussines.DeleteService(modelMapper.map(model,ServicoEntity.class));
         return ResponseEntity.ok("Apagado com sucesso");
     }
+
+    @GetMapping("/Prestador/Servicos")
+    public ResponseEntity<List<ServicoModel>> getServicesFromPrestador(@RequestParam("id") int id){
+
+            List<ServicoEntity> servicos = servicoBussines.ObterTodosServicosPorPrestadorId(id);
+
+        List<ServicoModel> services = new ArrayList<>();
+
+        for(ServicoEntity servico : servicos){
+            ServicoModel service = modelMapper.map(servico,ServicoModel.class);
+            if(servico.getImagens() != null){
+                service.setImagem(imagemBussines.getServiceImages(servico.getId_Servico()));
+            }
+            services.add(service);
+        }
+
+        return ResponseEntity.ok(services);
+    }
 }

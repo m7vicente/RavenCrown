@@ -19,7 +19,7 @@ public class ImageServiceDAO implements RavenCrownSaveImage<ImagemServicoModel> 
     @Override
     public String saveImage(ImagemServicoModel imageBLOB) {
 
-        String imageURL = local+"/image"+imageBLOB.getId_Servico()+imageBLOB.getId_Usuario()+imageBLOB.getId_Imagem_Servico()+".jpg";
+        String imageURL = local+"/image"+imageBLOB.getIdServico()+imageBLOB.getIdUsuario()+imageBLOB.getIdImagemServico()+".jpg";
 
         byte[] data = imageBLOB.getImage();
 

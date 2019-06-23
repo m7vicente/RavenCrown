@@ -1,53 +1,61 @@
 package br.com.Bandtec.RavenCrown.Web.Model;
 
-import br.com.Bandtec.RavenCrown.Entity.ImagemServicoEntity;
-import br.com.Bandtec.RavenCrown.Entity.ServicoEntity;
-import br.com.Bandtec.RavenCrown.Entity.UsuarioEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ImagemServicoModel{
 
-    private int Id_Imagem_Servico;
+    public int idImagemServico;
 
-    private int Id_Servico;
+    public int idServico;
 
-    private int Id_Usuario;
+    public int idUsuario;
 
-    private String Imagem_URL;
+    public String imagemURL;
 
-    private byte[] image;
+    public byte[] image;
 
-    public int getId_Imagem_Servico() {
-        return Id_Imagem_Servico;
+    public ImagemServicoModel(int idImagemServico, int idServico, int idUsuario, String imagemURL, byte[] image) {
+        this.idImagemServico = idImagemServico;
+        this.idServico = idServico;
+        this.idUsuario = idUsuario;
+        this.imagemURL = imagemURL;
+        this.image = image;
     }
 
-    public void setId_Imagem_Servico(int id_Imagem_Servico) {
-        Id_Imagem_Servico = id_Imagem_Servico;
+    public ImagemServicoModel() {
     }
 
-    public int getId_Servico() {
-        return this.Id_Servico;
+    public int getIdImagemServico() {
+        return idImagemServico;
     }
 
-    public void setId_Servico(int servico) {
-        this.Id_Servico = servico;
+    public void setIdImagemServico(int idImagemServico) {
+        this.idImagemServico = idImagemServico;
     }
 
-    public int getId_Usuario() {
-        return Id_Usuario;
+    public int getIdServico() {
+        return idServico;
     }
 
-    public void setId_Usuario(int id_Usuario) {
-        Id_Usuario = id_Usuario;
+    public void setIdServico(int idServico) {
+        this.idServico = idServico;
     }
 
-    public String getImagem_URL() {
-        return Imagem_URL;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setImagem_URL(String imagem_URL) {
-        Imagem_URL = imagem_URL;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getImagemURL() {
+        return imagemURL;
+    }
+
+    public void setImagemURL(String imagemURL) {
+        this.imagemURL = imagemURL;
     }
 
     public byte[] getImage() {
@@ -55,17 +63,6 @@ public class ImagemServicoModel{
     }
 
     public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public ImagemServicoModel() {
-    }
-
-    public ImagemServicoModel(int id_Imagem_Servico, int servico, int id_Usuario, String imagem_URL, byte[] image) {
-        Id_Imagem_Servico = id_Imagem_Servico;
-        Id_Servico = servico;
-        Id_Usuario = id_Usuario;
-        Imagem_URL = imagem_URL;
         this.image = image;
     }
 }

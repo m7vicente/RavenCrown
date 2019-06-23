@@ -4,6 +4,7 @@ package br.com.Bandtec.RavenCrown.Entity;
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -41,7 +42,7 @@ public class ServicoEntity {
 
     private String Descricao_Servico;
 
-    private LocalDateTime Tempo_Execucao;
+    private LocalTime Tempo_Execucao;
 
     private Double Preco_Servico;
 
@@ -50,7 +51,7 @@ public class ServicoEntity {
     public ServicoEntity() {
     }
 
-    public ServicoEntity(int id_Servico, UsuarioEntity prestador, EnderecoEntity endereco, List<ComentarioEntity> comentarios, List<DataServicoEntity> datas, CategoriaEntity categoria, String nome_Servico, String descricao_Servico, LocalDateTime tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
+    public ServicoEntity(int id_Servico, UsuarioEntity prestador, EnderecoEntity endereco, List<ComentarioEntity> comentarios, List<DataServicoEntity> datas, CategoriaEntity categoria, String nome_Servico, String descricao_Servico, LocalTime tempo_Execucao, Double preco_Servico, boolean localizacao_Fixa) {
         Id_Servico = id_Servico;
         Prestador = prestador;
         Endereco = endereco;
@@ -88,9 +89,9 @@ public class ServicoEntity {
 
     public void setDescricao_Servico(String Desc_Servico) { this.Descricao_Servico = Desc_Servico; }
 
-    public LocalDateTime getTempo_Execucao() { return Tempo_Execucao; }
+    public LocalTime getTempo_Execucao() { return Tempo_Execucao; }
 
-    public void setTempo_Execucao(LocalDateTime Tempo_Execucao) {this.Tempo_Execucao = Tempo_Execucao; }
+    public void setTempo_Execucao(LocalTime Tempo_Execucao) {this.Tempo_Execucao = Tempo_Execucao; }
 
     public Double getPreco_Servico() { return Preco_Servico; }
 

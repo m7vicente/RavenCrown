@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Component
@@ -25,7 +26,7 @@ public class ServicoModel {
 
     private String descricaoServico;
 
-    private LocalDateTime tempoExecucao;
+    private LocalTime tempoExecucao;
 
     private Double precoServico;
 
@@ -34,12 +35,12 @@ public class ServicoModel {
     public ServicoModel() {
     }
 
-    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> imagem, String nomeServico, String descricaoServico, LocalDateTime tempoExecucao, Double precoServico, boolean localizacaoFixa) {
+    public ServicoModel(int idServico, int idUsuario, EnderecoModel endereco, int idCategoria, List<ImagemServicoModel> Imagem, String nomeServico, String descricaoServico, LocalTime tempoExecucao, Double precoServico, boolean localizacaoFixa) {
         this.idServico = idServico;
         this.idUsuario = idUsuario;
         Endereco = endereco;
         this.idCategoria = idCategoria;
-        Imagem = imagem;
+        this.Imagem = Imagem;
         this.nomeServico = nomeServico;
         this.descricaoServico = descricaoServico;
         this.tempoExecucao = tempoExecucao;
@@ -103,11 +104,11 @@ public class ServicoModel {
         this.descricaoServico = descricaoServico;
     }
 
-    public LocalDateTime getTempoExecucao() {
+    public LocalTime getTempoExecucao() {
         return tempoExecucao;
     }
 
-    public void setTempoExecucao(LocalDateTime tempoExecucao) {
+    public void setTempoExecucao(LocalTime tempoExecucao) {
         this.tempoExecucao = tempoExecucao;
     }
 
